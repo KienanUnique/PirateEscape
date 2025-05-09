@@ -10,6 +10,8 @@ namespace Db.Sounds.Impl
         [Range(0f, 1f)] [SerializeField] private float musicVolume = 1f;
         [Range(0f, 1f)] [SerializeField] private float finalTitlesVolume = 0.5f;
 
+        [field: SerializeField] public float MouseSensitivity { get; private set; } = 20f;
+
         public float MasterVolume => masterVolume;
         public float MusicVolume => musicVolume;
 

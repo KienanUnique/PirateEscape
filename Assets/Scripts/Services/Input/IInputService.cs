@@ -7,6 +7,8 @@ namespace Services.Input
     {
         Observable<Unit> AnyKeyPressPerformed { get; }
         Vector2 MoveDirection { get; }
+        Vector2 MouseLook { get; }
+        Observable<Unit> JumpPressed { get; }
         Observable<Unit> PausePressed { get; }
         void SwitchToGameInput();
         void SwitchToUiAnyKeyInput();

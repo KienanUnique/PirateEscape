@@ -12,10 +12,12 @@ namespace Services.Settings
         ReadOnlyReactiveProperty<bool> IsMasterSoundsEnabled { get; }
         ReadOnlyReactiveProperty<bool> IsMusicEnabled { get; }
         ReadOnlyReactiveProperty<bool> IsDefaultSettingsApplied { get; }
+        float MouseSensitivity { get; }
 
         void SetMasterVolume(float newSoundVolume);
         void SetMusicVolume(float newSoundVolume);
         void SetIsSoundsEnabled(bool isSoundsEnabled);
         void SetIsMusicEnabled(bool isMusicEnabled);
+        void SetMouseSensitivity(float newSensitivity);
     }
 }

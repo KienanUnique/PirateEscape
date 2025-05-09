@@ -4,5 +4,11 @@
     {
         float Speed { get; }
         float Acceleration { get; }
+        float GroundedDrag { get; }
+        float AirborneDrag { get; }
+        float GroundCheckSphereRadius { get; }
+        float JumpForce { get; }
+        float JumpCooldown { get; }
+        float LookVerticalClamp { get; }
     }
 }

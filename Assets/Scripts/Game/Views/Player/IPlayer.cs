@@ -2,6 +2,7 @@
 {
     public interface IPlayer
     {
-        
+        void EnableMovement();
+        void DisableMovement();
     }
 }

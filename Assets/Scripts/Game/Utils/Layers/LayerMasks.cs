@@ -1,0 +1,41 @@
+﻿using UnityEngine;
+
+namespace Game.Utils.Layers
+{
+    public static class LayerMasks
+    {
+        public static int Player => PlayerMask.Value;
+        public static int Ground => GroundMask.Value;
+        
+        private static readonly Mask PlayerMask = new Mask(Layers.Player);
+        private static readonly Mask GroundMask = new Mask(Layers.Default);
+        
+        private class Mask
+        {
+            private readonly string[] _layerNames;
+
+            private int? _value;
+
+            public Mask(params string[] layerNames)
+            {
+                _layerNames = layerNames;
+            }
+
+            public int Value
+            {
+                get
+                {
+                    if (!_value.HasValue)
+                        _value = LayerMask.GetMask(_layerNames);
+                    return _value.Value;
+                }
+            }
+        }
+        
+        private static class Layers
+        {
+            public const string Player = "Player";
+            public const string Default = "Default";
+        }
+    }
+}

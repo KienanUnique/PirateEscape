@@ -32,6 +32,7 @@ namespace Services.Settings.Impl
         public ReadOnlyReactiveProperty<bool> IsMusicEnabled => _isMusicEnabled;
         
         public ReadOnlyReactiveProperty<bool> IsDefaultSettingsApplied => _isDefaultSettingsApplied;
+        public float MouseSensitivity { get; private set; }
 
         public SettingsStorageService(IGameDefaultParameters gameDefaultParameters)
         {
@@ -44,6 +45,8 @@ namespace Services.Settings.Impl
             
             _musicBaseVolume.Value = _gameDefaultParameters.MusicVolume;
             _videosBaseVolume.Value = _gameDefaultParameters.FinalTitlesVolume;
+            
+            MouseSensitivity = _gameDefaultParameters.MouseSensitivity;
 
             UpdateFinalSounds();
             _isDefaultSettingsApplied.Value = true;
@@ -63,6 +66,10 @@ namespace Services.Settings.Impl
 
         public void SetIsSoundsEnabled(bool isSoundsEnabled) => _isSoundsEnabled.Value = isSoundsEnabled;
         public void SetIsMusicEnabled(bool isMusicEnabled) => _isMusicEnabled.Value = isMusicEnabled;
+        public void SetMouseSensitivity(float newSensitivity)
+        {
+            MouseSensitivity = newSensitivity;
+        }
 
         private void UpdateFinalSounds()
         {
