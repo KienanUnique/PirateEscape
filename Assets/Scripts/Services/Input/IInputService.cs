@@ -6,6 +6,7 @@ namespace Services.Input
     public interface IInputService
     {
         Observable<Unit> AnyKeyPressPerformed { get; }
+        ReadOnlyReactiveProperty<bool> IsSprintPressed { get; }
         Vector2 MoveDirection { get; }
         Vector2 MouseLook { get; }
         Observable<Unit> JumpPressed { get; }

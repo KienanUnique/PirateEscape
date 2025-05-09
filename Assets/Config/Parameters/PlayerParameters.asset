@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: PlayerParameters
   m_EditorClassIdentifier: 
   <Speed>k__BackingField: 10
+  <SprintSpeed>k__BackingField: 20
+  <SprintAcceleration>k__BackingField: 40
   <Acceleration>k__BackingField: 20
   <GroundedDrag>k__BackingField: 5
   <AirborneDrag>k__BackingField: 3
-  <MaxSlopeAngle>k__BackingField: 45
-  <GroundCheckDistance>k__BackingField: 0.3
-  <SlopeCheckDistance>k__BackingField: 1.5
-  <SlopeStabilizationForce>k__BackingField: 50
   <GroundCheckSphereRadius>k__BackingField: 0.45
   <JumpForce>k__BackingField: 450
   <JumpCooldown>k__BackingField: 0.5

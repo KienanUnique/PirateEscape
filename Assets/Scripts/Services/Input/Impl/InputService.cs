@@ -12,9 +12,11 @@ namespace Services.Input.Impl
         private readonly ReactiveCommand _anyKeyPressPerformed = new();
         private readonly ReactiveCommand _jumpPerformed = new();
         private readonly ReactiveCommand _pausePerformed = new();
+        private readonly ReactiveProperty<bool> _isSprintPressed = new();
         private readonly MainControls _mainControls = new();
 
         public Observable<Unit> AnyKeyPressPerformed => _anyKeyPressPerformed;
+        public ReadOnlyReactiveProperty<bool> IsSprintPressed => _isSprintPressed;
         public Vector2 MoveDirection => _mainControls.Gameplay.Move.ReadValue<Vector2>();
         public Vector2 MouseLook => _mainControls.Gameplay.Look.ReadValue<Vector2>();
         public Observable<Unit> JumpPressed => _jumpPerformed;
@@ -25,6 +27,8 @@ namespace Services.Input.Impl
             _mainControls.UiAnyKey.ButtonPressed.performed += OnAnyKeyPerformed;
             _mainControls.Gameplay.Pause.performed += OnPausePerformed;
             _mainControls.Gameplay.Jump.performed += OnJumpPerformed;
+            _mainControls.Gameplay.Sprint.started += OnSprintStarted;
+            _mainControls.Gameplay.Sprint.canceled += OnSprintCanceled;
             
             SwitchToUiAnyKeyInput();
         }
@@ -50,22 +54,15 @@ namespace Services.Input.Impl
             _mainControls.UiAnyKey.ButtonPressed.performed -= OnAnyKeyPerformed;
             _mainControls.Gameplay.Pause.performed -= OnPausePerformed;
             _mainControls.Gameplay.Jump.performed -= OnJumpPerformed;
+            _mainControls.Gameplay.Sprint.started -= OnSprintStarted;
+            _mainControls.Gameplay.Sprint.canceled -= OnSprintCanceled;
             _mainControls?.Dispose();
         }
 
-        private void OnJumpPerformed(InputAction.CallbackContext obj)
-        {
-            _jumpPerformed.Execute(Unit.Default);
-        }
-
-        private void OnAnyKeyPerformed(InputAction.CallbackContext obj)
-        {
-            _anyKeyPressPerformed.Execute(Unit.Default);
-        }
-        
-        private void OnPausePerformed(InputAction.CallbackContext obj)
-        {
-            _pausePerformed.Execute(Unit.Default);
-        }
+        private void OnJumpPerformed(InputAction.CallbackContext obj) => _jumpPerformed.Execute(Unit.Default);
+        private void OnAnyKeyPerformed(InputAction.CallbackContext obj) => _anyKeyPressPerformed.Execute(Unit.Default);
+        private void OnPausePerformed(InputAction.CallbackContext obj) => _pausePerformed.Execute(Unit.Default);
+        private void OnSprintStarted(InputAction.CallbackContext obj) => _isSprintPressed.Value = true;
+        private void OnSprintCanceled(InputAction.CallbackContext obj) => _isSprintPressed.Value = false;
     }
 }

@@ -104,17 +104,25 @@ namespace Game.Views.Player.Movement
 
         private void HandleMovement()
         {
-            var targetVelocity = _moveDirection * _playerParameters.Speed;
+            var speed = _inputService.IsSprintPressed.CurrentValue
+                ? _playerParameters.SprintSpeed
+                : _playerParameters.Speed;
+            
+            var targetVelocity = _moveDirection * speed;
             
             ApplyMovementForce(targetVelocity);
         }
 
         private void ApplyMovementForce(Vector3 targetVelocity)
         {
-            Vector3 velocityChange = (targetVelocity - _rigidbody.linearVelocity);
+            var velocityChange = (targetVelocity - _rigidbody.linearVelocity);
             velocityChange.y = 0;
 
-            float maxAccel = _playerParameters.Acceleration * Time.fixedDeltaTime;
+            var acceleration = _inputService.IsSprintPressed.CurrentValue
+                ? _playerParameters.SprintAcceleration
+                : _playerParameters.Acceleration;
+            
+            var maxAccel = acceleration * Time.fixedDeltaTime;
             velocityChange = Vector3.ClampMagnitude(velocityChange, maxAccel);
 
             _rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);

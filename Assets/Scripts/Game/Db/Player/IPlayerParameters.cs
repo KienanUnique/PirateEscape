@@ -3,6 +3,8 @@
     public interface IPlayerParameters
     {
         float Speed { get; }
+        float SprintSpeed { get; }
+        float SprintAcceleration { get; }
         float Acceleration { get; }
         float GroundedDrag { get; }
         float AirborneDrag { get; }
