@@ -1,0 +1,62 @@
+{
+    "name": "MainControls",
+    "maps": [
+        {
+            "name": "UiAnyKey",
+            "id": "7ed13dfe-2f3b-40e1-8427-3593b525fe74",
+            "actions": [
+                {
+                    "name": "ButtonPressed",
+                    "type": "Button",
+                    "id": "748d226e-cdf1-4967-b2fa-65bfd460c8ea",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e749886a-06f4-4698-ae2f-0bace182ad5d",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonPressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5c639112-8dd5-4df6-b39f-39cf3a31ec67",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonPressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1db632b7-6142-43fe-93c8-994e0c5659d4",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonPressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "MainScheme",
+            "bindingGroup": "MainScheme",
+            "devices": []
+        }
+    ]
+}

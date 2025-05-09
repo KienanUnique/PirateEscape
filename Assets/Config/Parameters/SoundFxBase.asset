@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b583a39d42743ba8752cbe4ab0ef1ef, type: 3}
+  m_Name: SoundFxBase
+  m_EditorClassIdentifier: 
+  gameSounds: []
+  uiSounds:
+  - UiSoundName: 1
+    GameSoundType: 0
+    EventReference:
+      Guid:
+        Data1: 1842713453
+        Data2: 1096169993
+        Data3: 948061570
+        Data4: 325229417
+      Path: event:/Intro
+  <BackgroundMusicTypeParameterName>k__BackingField: parameter:/BackgroundMusicType
+  <BackgroundMusicEventReference>k__BackingField:
+    Guid:
+      Data1: 954924322
+      Data2: 1160674705
+      Data3: -762219842
+      Data4: -190830882
+    Path: event:/BackgroundMusic
+  __alchemySerializationData_Db_Sounds_Impl_SoundFxBase:
+    _backgroundMusic:
+      isCreated: 1
+      data: "[\n    {\n        \"Key\": 0,\n        \"Value\": \"None\"\n    },\n   
+        {\n        \"Key\": 1,\n        \"Value\": \"MainMenu\"\n    },\n    {\n       
+        \"Key\": 2,\n        \"Value\": \"Game\"\n    }\n]"
+    _soundGroupBuses:
+      isCreated: 1
+      data: "[\n    {\n        \"Key\": 0,\n        \"Value\": \"bus:/Music\"\n   
+        },\n    {\n        \"Key\": 2,\n        \"Value\": \"bus:/Ui\"\n    },\n   
+        {\n        \"Key\": 3,\n        \"Value\": \"bus:/\"\n    }\n]"
+    unityObjectReferences: []
