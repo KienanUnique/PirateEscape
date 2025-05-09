@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a34f1c9045af458288cd7dcf861ff3f5, type: 3}
   m_Name: GameParametersInstaller
   m_EditorClassIdentifier: 
+  _playerParameters: {fileID: 11400000, guid: 203e3f902033ac44eabfd09aceb09053, type: 2}

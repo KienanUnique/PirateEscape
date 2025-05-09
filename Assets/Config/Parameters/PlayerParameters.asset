@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b65e380f734e11bb5d9f629e8619e2, type: 3}
+  m_Name: PlayerParameters
+  m_EditorClassIdentifier: 
+  <Speed>k__BackingField: 10
+  <SprintSpeed>k__BackingField: 20
+  <SprintAcceleration>k__BackingField: 40
+  <Acceleration>k__BackingField: 20
+  <GroundedDrag>k__BackingField: 5
+  <AirborneDrag>k__BackingField: 3
+  <GroundCheckSphereRadius>k__BackingField: 0.45
+  <JumpForce>k__BackingField: 450
+  <JumpCooldown>k__BackingField: 0.5
+  <LookVerticalClamp>k__BackingField: 90

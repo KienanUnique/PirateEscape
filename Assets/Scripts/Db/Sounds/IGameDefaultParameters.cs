@@ -5,5 +5,6 @@
         float MasterVolume { get; }
         float MusicVolume { get; }
         float FinalTitlesVolume { get; }
+        float MouseSensitivity { get; }
     }
 }
