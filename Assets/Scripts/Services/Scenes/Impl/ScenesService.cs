@@ -10,7 +10,7 @@ namespace Services.Scenes.Impl
 {
     public class ScenesService : IScenesService, IDisposable
     {
-        //private const string MainMenuSceneName = "MainMenuScene";
+        private const string GAME_SCENE_NAME = "GameScene";
 
         private readonly IProjectWindowsService _projectWindowsService;
         
@@ -26,11 +26,9 @@ namespace Services.Scenes.Impl
             _projectWindowsService = projectWindowsService;
         }
 
-        public void LoadNextScene()
+        public void LoadGameScene()
         {
-            // TODO: Implement me!
-            throw new NotImplementedException();
-            // LoadScene(MainMenuSceneName);
+            LoadScene(GAME_SCENE_NAME);
         }
 
         public void Dispose()

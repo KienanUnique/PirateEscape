@@ -72,7 +72,7 @@ namespace Splash.Services
         private void HandleSplashEnd()
         {
             _uiSoundFxService.Stop(EUiSoundFxType.KitchenInTheDungeon);
-            _scenesService.LoadNextScene();
+            _scenesService.LoadGameScene();
             
             _compositeDisposable?.Dispose();
         }

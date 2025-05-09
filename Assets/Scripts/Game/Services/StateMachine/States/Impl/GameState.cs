@@ -1,14 +1,10 @@
 ﻿namespace Game.Services.StateMachine.States.Impl
 {
-    public class StartState : AState
+    public class GameState : AState
     {
-        public StartState()
-        {
-        }
-
         protected override void HandleEnter()
         {
-            GameStateMachine.Enter<GameState>();
+            
         }
 
         protected override void HandleExit()
