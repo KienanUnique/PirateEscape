@@ -6,9 +6,11 @@ namespace Game.Utils.Layers
     {
         public static int Player => PlayerMask.Value;
         public static int Ground => GroundMask.Value;
+        public static int Interactable => InteractableMask.Value;
         
         private static readonly Mask PlayerMask = new Mask(Layers.Player);
         private static readonly Mask GroundMask = new Mask(Layers.Default);
+        private static readonly Mask InteractableMask = new Mask(Layers.Interactable);
         
         private class Mask
         {
@@ -36,6 +38,7 @@ namespace Game.Utils.Layers
         {
             public const string Player = "Player";
             public const string Default = "Default";
+            public const string Interactable = "Interactable";
         }
     }
 }

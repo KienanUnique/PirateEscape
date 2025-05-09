@@ -11,11 +11,13 @@ namespace Services.Input.Impl
     {
         private readonly ReactiveCommand _anyKeyPressPerformed = new();
         private readonly ReactiveCommand _jumpPerformed = new();
+        private readonly ReactiveCommand _interactionPerformed = new();
         private readonly ReactiveCommand _pausePerformed = new();
         private readonly ReactiveProperty<bool> _isSprintPressed = new();
         private readonly MainControls _mainControls = new();
 
         public Observable<Unit> AnyKeyPressPerformed => _anyKeyPressPerformed;
+        public Observable<Unit> InteractionPerformed => _interactionPerformed;
         public ReadOnlyReactiveProperty<bool> IsSprintPressed => _isSprintPressed;
         public Vector2 MoveDirection => _mainControls.Gameplay.Move.ReadValue<Vector2>();
         public Vector2 MouseLook => _mainControls.Gameplay.Look.ReadValue<Vector2>();
@@ -27,6 +29,7 @@ namespace Services.Input.Impl
             _mainControls.UiAnyKey.ButtonPressed.performed += OnAnyKeyPerformed;
             _mainControls.Gameplay.Pause.performed += OnPausePerformed;
             _mainControls.Gameplay.Jump.performed += OnJumpPerformed;
+            _mainControls.Gameplay.Interaction.performed += OnInteractionPerformed;
             _mainControls.Gameplay.Sprint.started += OnSprintStarted;
             _mainControls.Gameplay.Sprint.canceled += OnSprintCanceled;
             
@@ -62,6 +65,7 @@ namespace Services.Input.Impl
             _mainControls.UiAnyKey.ButtonPressed.performed -= OnAnyKeyPerformed;
             _mainControls.Gameplay.Pause.performed -= OnPausePerformed;
             _mainControls.Gameplay.Jump.performed -= OnJumpPerformed;
+            _mainControls.Gameplay.Interaction.performed -= OnInteractionPerformed;
             _mainControls.Gameplay.Sprint.started -= OnSprintStarted;
             _mainControls.Gameplay.Sprint.canceled -= OnSprintCanceled;
             _mainControls?.Dispose();
@@ -72,5 +76,6 @@ namespace Services.Input.Impl
         private void OnPausePerformed(InputAction.CallbackContext obj) => _pausePerformed.Execute(Unit.Default);
         private void OnSprintStarted(InputAction.CallbackContext obj) => _isSprintPressed.Value = true;
         private void OnSprintCanceled(InputAction.CallbackContext obj) => _isSprintPressed.Value = false;
+        private void OnInteractionPerformed(InputAction.CallbackContext obj) => _interactionPerformed.Execute(Unit.Default);
     }
 }

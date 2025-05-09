@@ -2,7 +2,7 @@
 {
     public interface IPlayer
     {
-        void EnableMovement();
-        void DisableMovement();
+        void EnableActions();
+        void DisableActions();
     }
 }
