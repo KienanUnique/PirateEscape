@@ -26,6 +26,7 @@ namespace Game.Services.Dialog.Impl
 
             _currentDialog = dialog;
             _dialogStarted.Execute(Unit.Default);
+            _needStartDialog.Execute(dialog);
         }
 
         public void HandleDialogComplete()

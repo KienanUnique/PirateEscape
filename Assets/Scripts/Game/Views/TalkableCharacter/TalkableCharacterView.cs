@@ -1,5 +1,5 @@
 ﻿using Game.Core;
-using Game.Db.Dialog;
+using Game.Db.Dialog.Impl;
 using Game.Services.Dialog;
 using UnityEngine;
 using Zenject;
@@ -8,7 +8,7 @@ namespace Game.Views.TalkableCharacter
 {
     public class TalkableCharacterView : AView, IInteractable
     {
-        [SerializeField] private IDialogProvider _dialog;
+        [SerializeField] private DialogProvider _dialog;
         
         [Inject] private IDialogService _dialogService;
         

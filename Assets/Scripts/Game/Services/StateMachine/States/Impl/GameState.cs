@@ -61,12 +61,14 @@ namespace Game.Services.StateMachine.States.Impl
         {
             _localWindowsService.OpenWindow<DialogWindow>();
             _player.DisableActions();
+            _inputService.SwitchToUiInput();
         }
         
         private void OnDialogComplete()
         {
             _localWindowsService.TryBackWindow();
             _player.EnableActions();
+            _inputService.SwitchToGameInput();
         }
     }
 }
