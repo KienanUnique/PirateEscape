@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d53368f38cc447a9b5a79b4b7c34c97e, type: 3}
   m_Name: GameUiInstaller
   m_EditorClassIdentifier: 
+  canvas: {fileID: 6088143201520821822, guid: b650471b2b5b62e4287402b0aacd66ab, type: 3}
+  _gameplayWindow: {fileID: 2058638284878933411, guid: 607b1a7aa37229b4bb26c3ee92890042, type: 3}
+  _dialogWindow: {fileID: 4352132467199015681, guid: e919c0ac6ba38a944a6c33baf1b464b7, type: 3}

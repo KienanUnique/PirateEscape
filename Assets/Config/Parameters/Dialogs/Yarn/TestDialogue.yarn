@@ -1,0 +1,19 @@
+﻿title: Test_Dialogue
+position: -40,-182
+---
+<<change_avatar {$AV_rat_happy}>>
+
+{$rat}: Hi, I'm the narrator for this beginner's guide!
+{$rat}: I'm talking to you with Yarn Spinner!
+{$rat}: What do you think of all this, then?
+    -> It's alright, I guess.
+        <<change_avatar {$AV_rat_sad}>>
+        {$rat}: Well, that's not very nice.
+        {$rat}: I'm trying my best here.
+        <<change_avatar {$AV_rat_happy}>>
+    -> It's great. I love it.
+        <<change_avatar {$AV_rat_sad}>>
+        {$rat}: Oh, you're too kind.
+        {$rat}: I'm just doing my job.
+        <<change_avatar {$AV_rat_happy}>>
+===
