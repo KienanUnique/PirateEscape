@@ -47,6 +47,14 @@ namespace Services.Input.Impl
             _mainControls.Gameplay.Disable();
         }
 
+        public void SwitchToUiInput()
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+
+            _mainControls.UiAnyKey.Disable();
+            _mainControls.Gameplay.Disable();
+        }
+
         public void Dispose()
         {
             _anyKeyPressPerformed?.Dispose();

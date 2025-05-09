@@ -13,5 +13,6 @@ namespace Services.Input
         Observable<Unit> PausePressed { get; }
         void SwitchToGameInput();
         void SwitchToUiAnyKeyInput();
+        void SwitchToUiInput();
     }
 }

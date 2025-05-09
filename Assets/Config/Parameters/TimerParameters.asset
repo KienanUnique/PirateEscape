@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a34f1c9045af458288cd7dcf861ff3f5, type: 3}
-  m_Name: GameParametersInstaller
+  m_Script: {fileID: 11500000, guid: 0bba4491204746a98c56239a03e730d3, type: 3}
+  m_Name: TimerParameters
   m_EditorClassIdentifier: 
-  _playerParameters: {fileID: 11400000, guid: 203e3f902033ac44eabfd09aceb09053, type: 2}
-  _timerParameters: {fileID: 11400000, guid: d5a9f1ff44cf9e74382353c33fc0db9b, type: 2}
+  <LoseTimerDurationSeconds>k__BackingField: 60
