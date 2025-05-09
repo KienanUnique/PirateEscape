@@ -37,7 +37,7 @@ namespace Game.Views.Player.Movement
         }
 
         public void EnableMovement() => _isInputEnabled = true;
-        public void DisableMovement() => _moveDirection = Vector3.zero;
+        public void DisableMovement() => _isInputEnabled = false;
 
         private void OnUpdate()
         {
@@ -64,6 +64,9 @@ namespace Game.Views.Player.Movement
 
         private void HandleMouseLook()
         {
+            if (!_isInputEnabled)
+                return;
+            
             var mouseLook = _inputService.MouseLook;
             var mouseX = mouseLook.x * _settingsStorageService.MouseSensitivity * Time.deltaTime;
             var mouseY = mouseLook.y * _settingsStorageService.MouseSensitivity * Time.deltaTime;

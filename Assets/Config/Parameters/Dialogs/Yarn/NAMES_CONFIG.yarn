@@ -1,0 +1,10 @@
+﻿title: DECLARE_AVATARS
+---
+<<declare $AV_rat_happy = "rat_happy">>
+<<declare $AV_rat_sad = "rat_sad">>
+===
+
+title: DECLARE_NAMES
+---
+<<declare $rat = "Rat">>
+===

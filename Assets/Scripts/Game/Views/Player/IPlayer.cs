@@ -1,8 +1,11 @@
-﻿namespace Game.Views.Player
+﻿using R3;
+
+namespace Game.Views.Player
 {
     public interface IPlayer
     {
-        void EnableMovement();
-        void DisableMovement();
+        ReadOnlyReactiveProperty<bool> CanInteract { get; }
+        void EnableActions();
+        void DisableActions();
     }
 }
