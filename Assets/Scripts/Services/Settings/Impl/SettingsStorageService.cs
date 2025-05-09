@@ -40,7 +40,7 @@ namespace Services.Settings.Impl
         
         public void Initialize()
         {
-            _masterSoundsVolume.Value = _gameDefaultParameters.SoundsVolume;
+            _masterSoundsVolume.Value = _gameDefaultParameters.MasterVolume;
             
             _musicBaseVolume.Value = _gameDefaultParameters.MusicVolume;
             _videosBaseVolume.Value = _gameDefaultParameters.FinalTitlesVolume;

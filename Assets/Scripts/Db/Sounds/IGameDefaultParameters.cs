@@ -2,7 +2,7 @@
 {
     public interface IGameDefaultParameters
     {
-        float SoundsVolume { get; }
+        float MasterVolume { get; }
         float MusicVolume { get; }
         float FinalTitlesVolume { get; }
     }
