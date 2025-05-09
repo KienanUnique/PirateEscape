@@ -2,7 +2,9 @@
 using Alchemy.Inspector;
 using Game.Services.Pause.Impl;
 using Game.Services.StateMachine.Impl;
+using Game.Timer.Impl;
 using Game.Views.Player;
+using Game.Views.Timer;
 using Services.FmodSound.Impl.Game.Impl;
 using UnityEditor;
 using UnityEngine;
@@ -13,6 +15,7 @@ namespace Game.Installers
     public class GameInstaller : MonoInstaller
     {
         [SerializeField] PlayerView _playerInstance;
+        [SerializeField] TimerView _timerInstance;
         
         public override void InstallBindings()
         {
@@ -23,6 +26,7 @@ namespace Game.Installers
         private void BindViews()
         {
             Container.BindInterfacesAndSelfTo<PlayerView>().FromInstance(_playerInstance).AsSingle();
+            Container.BindInterfacesAndSelfTo<TimerView>().FromInstance(_timerInstance).AsSingle();
         }
 
         private void BindServices()
@@ -30,6 +34,7 @@ namespace Game.Installers
             Container.Bind(typeof(IInitializable), typeof(IDisposable)).To<GameStateMachine>().AsSingle().NonLazy();
             Container.BindInterfacesTo<PauseService>().AsSingle();
             Container.BindInterfacesTo<GameSoundFxService>().AsSingle();
+            Container.BindInterfacesTo<TimerService>().AsSingle();
         }
         
 #if UNITY_EDITOR
@@ -37,6 +42,7 @@ namespace Game.Installers
         public virtual void Autofill()
         {
             _playerInstance = FindFirstObjectByType<PlayerView>();
+            _timerInstance = FindFirstObjectByType<TimerView>();
             
             EditorUtility.SetDirty(this);
             AssetDatabase.SaveAssetIfDirty(this);
