@@ -1,5 +1,6 @@
 ﻿using System;
 using Alchemy.Inspector;
+using Game.Services.Dialog.Impl;
 using Game.Services.Pause.Impl;
 using Game.Services.StateMachine.Impl;
 using Game.Timer.Impl;
@@ -14,8 +15,8 @@ namespace Game.Installers
 {
     public class GameInstaller : MonoInstaller
     {
-        [SerializeField] PlayerView _playerInstance;
-        [SerializeField] TimerView _timerInstance;
+        [SerializeField] private PlayerView _playerInstance;
+        [SerializeField] private TimerView _timerInstance;
         
         public override void InstallBindings()
         {
@@ -35,6 +36,7 @@ namespace Game.Installers
             Container.BindInterfacesTo<PauseService>().AsSingle();
             Container.BindInterfacesTo<GameSoundFxService>().AsSingle();
             Container.BindInterfacesTo<TimerService>().AsSingle();
+            Container.BindInterfacesTo<DialogService>().AsSingle();
         }
         
 #if UNITY_EDITOR

@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerParameters: {fileID: 11400000, guid: 203e3f902033ac44eabfd09aceb09053, type: 2}
   _timerParameters: {fileID: 11400000, guid: d5a9f1ff44cf9e74382353c33fc0db9b, type: 2}
+  _avatarBase: {fileID: 11400000, guid: 5770a707e2a3fc14594ae828201e47f7, type: 2}
+  _dialogParameters: {fileID: 11400000, guid: 9039bb93266045143ad4577195fab8b4, type: 2}
+  _dialogProvider: {fileID: 0}
