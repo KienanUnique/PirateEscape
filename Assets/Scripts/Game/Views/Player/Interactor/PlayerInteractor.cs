@@ -19,6 +19,8 @@ namespace Game.Views.Player.Interactor
         [Inject] private IInputService _inputService;
 
         private bool _isInteractionEnabled;
+        
+        public ReadOnlyReactiveProperty<bool> CanInteract => _canInteract;
 
         public override void Initialize()
         {

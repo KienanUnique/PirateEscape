@@ -47,5 +47,12 @@ namespace Game.Ui.Dialog.Dialog
         {
             return _image.DOFade(HIDE_ALPHA_VALUE, _disappearDuration).SetEase(_disappearEase);
         }
+
+        public void HideAvatarInstantly()
+        {
+            var color = _image.color;
+            color.a = HIDE_ALPHA_VALUE;
+            _image.color = color;
+        }
     }
 }

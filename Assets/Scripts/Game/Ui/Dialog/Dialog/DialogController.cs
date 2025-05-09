@@ -29,6 +29,8 @@ namespace Game.Ui.Dialog.Dialog
             _dialogService.NeedStartDialog.Subscribe(OnNeedStartDialog).AddTo(View);
             View.Runner.onDialogueComplete.AsObservable().Subscribe(_ => OnDialogComplete()).AddTo(View);
             View.Runner.AddCommandHandler<string>(_dialogParameters.ChangeAvatarCommandName, TryChangeAvatar);
+
+            View.HideAvatarInstantly();
         }
 
         protected override void OnClose()
