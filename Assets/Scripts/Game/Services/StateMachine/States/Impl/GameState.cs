@@ -3,6 +3,7 @@ using Game.Timer;
 using Game.Ui.Dialog;
 using Game.Ui.Gameplay;
 using Game.Views.Player;
+using Game.Views.WinTrigger;
 using KoboldUi.Services.WindowsService;
 using R3;
 using Services.Input;
@@ -16,13 +17,15 @@ namespace Game.Services.StateMachine.States.Impl
         private readonly ITimerService _timerService;
         private readonly IDialogService _dialogService;
         private readonly ILocalWindowsService _localWindowsService;
+        private readonly IWinTriggerView _winTriggerView;
 
         public GameState(
             IPlayer player,
             IInputService inputService,
             ITimerService timerService,
             IDialogService dialogService,
-            ILocalWindowsService localWindowsService
+            ILocalWindowsService localWindowsService,
+            IWinTriggerView winTriggerView
         )
         {
             _player = player;
@@ -30,6 +33,7 @@ namespace Game.Services.StateMachine.States.Impl
             _timerService = timerService;
             _dialogService = dialogService;
             _localWindowsService = localWindowsService;
+            _winTriggerView = winTriggerView;
         }
 
         protected override void HandleEnter()
@@ -41,6 +45,8 @@ namespace Game.Services.StateMachine.States.Impl
             _timerService.StartLoseTimer();
 
             _timerService.TimerEnded.Subscribe(_ => OnTimerEnd()).AddTo(ActiveDisposable);
+            _winTriggerView.PlayerEntered.Subscribe(_ => OnPlayerEnteredWinTrigger()).AddTo(ActiveDisposable);
+            
             _dialogService.DialogStarted.Subscribe(_ => OnDialogStarted()).AddTo(ActiveDisposable);
             _dialogService.DialogComplete.Subscribe(_ => OnDialogComplete()).AddTo(ActiveDisposable);
         }
@@ -48,8 +54,12 @@ namespace Game.Services.StateMachine.States.Impl
         protected override void HandleExit()
         {
             _timerService.StopLoseTimer();
-            _inputService.SwitchToGameInput();
             _player.DisableActions();
+        }
+
+        private void OnPlayerEnteredWinTrigger()
+        {
+            GameStateMachine.Enter<WinState>();
         }
 
         private void OnTimerEnd()
