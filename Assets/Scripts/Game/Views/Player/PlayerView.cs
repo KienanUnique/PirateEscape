@@ -11,9 +11,12 @@ namespace Game.Views.Player
         [SerializeField] private PlayerMovement _playerMovement;
         [SerializeField] private PlayerInteractor _playerInteractor;
         [SerializeField] private PlayerGrab _playerGrab;
+        [SerializeField] private PlayerClickInteract _clickInteract;
 
         public ReadOnlyReactiveProperty<bool> CanInteract => _playerInteractor.CanInteract;
         public ReadOnlyReactiveProperty<bool> CanGrab => _playerGrab.CanGrab;
+        public ReadOnlyReactiveProperty<IClickInteractable> ChangeClickInteract => _clickInteract.ChosenClickInteractable;
+        public Observable<Unit> ClickOnInteractableObject => _clickInteract.ClickOnObjectInteractable;
 
         public void EnableActions()
         {

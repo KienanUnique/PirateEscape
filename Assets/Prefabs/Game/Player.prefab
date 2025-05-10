@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 9029563477051713039}
   - component: {fileID: 2953960709008262951}
   - component: {fileID: 938163684993363412}
+  - component: {fileID: 5639064566803332346}
   - component: {fileID: 4153320302190976943}
   - component: {fileID: 4965902002544417091}
   - component: {fileID: 3927042235657647836}
@@ -391,9 +392,11 @@ MonoBehaviour:
   - {fileID: 9029563477051713039}
   - {fileID: 2953960709008262951}
   - {fileID: 938163684993363412}
+  - {fileID: 5639064566803332346}
   _playerMovement: {fileID: 9029563477051713039}
   _playerInteractor: {fileID: 2953960709008262951}
   _playerGrab: {fileID: 938163684993363412}
+  _clickInteract: {fileID: 5639064566803332346}
 --- !u!114 &9029563477051713039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,6 +440,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _grabTrigger: {fileID: 2313496713913732983}
   _connector: {fileID: 436975457708902619}
+--- !u!114 &5639064566803332346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795851811321256840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 654b90a06e3b46ea94b217b7c9673446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactTrigger: {fileID: 2313496713913732983}
 --- !u!33 &4153320302190976943
 MeshFilter:
   m_ObjectHideFlags: 0
