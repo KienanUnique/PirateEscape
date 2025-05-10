@@ -6,7 +6,7 @@ namespace Game.Views
     {
         Vector3 Position { get; }
         
-        void Grab(Rigidbody connect);
+        void Grab(Rigidbody connector);
         void Drop();
     }
 }
