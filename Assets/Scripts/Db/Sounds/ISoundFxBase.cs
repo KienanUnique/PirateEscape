@@ -8,8 +8,6 @@ namespace Db.Sounds
     {
         IReadOnlyDictionary<EGameSoundFxType, EventReference> GameSoundsEventReferences { get; }
         IReadOnlyDictionary<EUiSoundFxType, EventReference> UiSoundsEventReferences { get; }
-        IReadOnlyDictionary<EBackgroundMusicType, string> BackgroundMusicTypeParametersNames { get; }
-        string BackgroundMusicTypeParameterName { get; }
         EventReference BackgroundMusicEventReference { get; }
         IReadOnlyDictionary<ESoundsGroupType, string> SoundGroupBuses { get; }
     }
