@@ -2,7 +2,6 @@
 using Game.Views.Player;
 using KoboldUi.Element.Controller;
 using R3;
-using UnityEngine;
 
 namespace Game.Ui.Gameplay.ClickInteract
 {
@@ -37,7 +36,7 @@ namespace Game.Ui.Gameplay.ClickInteract
             {
                 _clickInteractable = clickInteractable;
                 
-                View.ChangeProgress(clickInteractable.Progress);
+                View.ChangeProgress(clickInteractable.Progress, clickInteractable.MaxProgress);
                 
                 View.Appear();
             }
@@ -48,7 +47,7 @@ namespace Game.Ui.Gameplay.ClickInteract
             if (_clickInteractable == null)
                 return;
             
-            View.ChangeProgress(_clickInteractable.Progress);
+            View.ChangeProgress(_clickInteractable.Progress, _clickInteractable.MaxProgress);
         }
     }
 }

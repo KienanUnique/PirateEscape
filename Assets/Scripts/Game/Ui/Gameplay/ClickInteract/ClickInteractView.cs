@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using KoboldUi.Element.View;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Game.Ui.Gameplay.ClickInteract
 {
@@ -11,7 +11,7 @@ namespace Game.Ui.Gameplay.ClickInteract
         private const float HIDE_ALPHA_VALUE = 0f;
         
         [SerializeField] private CanvasGroup _canvasGroup;
-        [SerializeField] private Slider _progress;
+        [SerializeField] private TMP_Text _progress;
         
         [Header("Appearance")]
         [SerializeField] private float _appearDuration = 0.5f;  
@@ -43,9 +43,15 @@ namespace Game.Ui.Gameplay.ClickInteract
             _canvasGroup.alpha = HIDE_ALPHA_VALUE;
         }
 
-        public void ChangeProgress(float newValue)
+        public void ChangeProgress(int progress, int maxProgress)
         {
-            _progress.value = newValue;
+            _progress.color = CalculateTextColor(progress, maxProgress);
+            _progress.text = $"{progress}/{maxProgress}";
+        }
+
+        private static Color CalculateTextColor(int progress, int maxProgress)
+        {
+            return new Color(maxProgress - progress, (float)progress / maxProgress, 0);
         }
     }
 }
