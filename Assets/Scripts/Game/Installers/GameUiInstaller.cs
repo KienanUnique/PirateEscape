@@ -1,5 +1,7 @@
 ﻿using Game.Ui.Dialog;
 using Game.Ui.Gameplay;
+using Game.Ui.Lose;
+using Game.Ui.Win;
 using KoboldUi.Utils;
 using UnityEngine;
 using Utils;
@@ -15,6 +17,8 @@ namespace Game.Installers
         [Header("Windows")]
         [SerializeField] private GameplayWindow _gameplayWindow;
         [SerializeField] private DialogWindow _dialogWindow;
+        [SerializeField] private WinWindow _winWindow;
+        [SerializeField] private LoseWindow _loseWindow;
         
         public override void InstallBindings()
         {
@@ -22,6 +26,8 @@ namespace Game.Installers
             
             Container.BindWindowFromPrefab(canvasInstance, _gameplayWindow);
             Container.BindWindowFromPrefab(canvasInstance, _dialogWindow);
+            Container.BindWindowFromPrefab(canvasInstance, _winWindow);
+            Container.BindWindowFromPrefab(canvasInstance, _loseWindow);
         }
     }
 }

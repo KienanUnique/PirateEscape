@@ -32,6 +32,7 @@ namespace Game.Services.StateMachine.Impl
             AddState<StartState>();
             AddState<GameState>();
             AddState<LoseState>();
+            AddState<WinState>();
 
             Enter<StartState>();
         }
