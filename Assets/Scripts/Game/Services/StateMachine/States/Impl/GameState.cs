@@ -44,8 +44,10 @@ namespace Game.Services.StateMachine.States.Impl
             _player.EnableActions();
             _timerService.StartLoseTimer();
 
-            _timerService.TimerEnded.Subscribe(_ => OnTimerEnd()).AddTo(ActiveDisposable);
-            _winTriggerView.PlayerEntered.Subscribe(_ => OnPlayerEnteredWinTrigger()).AddTo(ActiveDisposable);
+            _timerService.TimerEnded.Subscribe(_ => Lose()).AddTo(ActiveDisposable);
+            _winTriggerView.PlayerEntered.Subscribe(_ => Win()).AddTo(ActiveDisposable);
+            _dialogService.WinRequested.Subscribe(_ => Win()).AddTo(ActiveDisposable);
+            _dialogService.LoseRequested.Subscribe(_ => Lose()).AddTo(ActiveDisposable);
             
             _dialogService.DialogStarted.Subscribe(_ => OnDialogStarted()).AddTo(ActiveDisposable);
             _dialogService.DialogComplete.Subscribe(_ => OnDialogComplete()).AddTo(ActiveDisposable);
@@ -57,12 +59,12 @@ namespace Game.Services.StateMachine.States.Impl
             _player.DisableActions();
         }
 
-        private void OnPlayerEnteredWinTrigger()
+        private void Win()
         {
             GameStateMachine.Enter<WinState>();
         }
 
-        private void OnTimerEnd()
+        private void Lose()
         {
             GameStateMachine.Enter<LoseState>();
         }
