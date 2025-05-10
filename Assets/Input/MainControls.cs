@@ -203,6 +203,15 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ClickInteract"",
+                    ""type"": ""Button"",
+                    ""id"": ""c2e56881-c7ff-4406-90f0-df70bd0d7044"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -326,6 +335,17 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
                     ""action"": ""Grab"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6fda07db-c2b9-4882-bb90-063dacf52a27"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClickInteract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -350,6 +370,7 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
         m_Gameplay_Sprint = m_Gameplay.FindAction("Sprint", throwIfNotFound: true);
         m_Gameplay_Interaction = m_Gameplay.FindAction("Interaction", throwIfNotFound: true);
         m_Gameplay_Grab = m_Gameplay.FindAction("Grab", throwIfNotFound: true);
+        m_Gameplay_ClickInteract = m_Gameplay.FindAction("ClickInteract", throwIfNotFound: true);
     }
 
     ~@MainControls()
@@ -534,6 +555,7 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Sprint;
     private readonly InputAction m_Gameplay_Interaction;
     private readonly InputAction m_Gameplay_Grab;
+    private readonly InputAction m_Gameplay_ClickInteract;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -573,6 +595,10 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/Grab".
         /// </summary>
         public InputAction @Grab => m_Wrapper.m_Gameplay_Grab;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/ClickInteract".
+        /// </summary>
+        public InputAction @ClickInteract => m_Wrapper.m_Gameplay_ClickInteract;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -620,6 +646,9 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
             @Grab.started += instance.OnGrab;
             @Grab.performed += instance.OnGrab;
             @Grab.canceled += instance.OnGrab;
+            @ClickInteract.started += instance.OnClickInteract;
+            @ClickInteract.performed += instance.OnClickInteract;
+            @ClickInteract.canceled += instance.OnClickInteract;
         }
 
         /// <summary>
@@ -652,6 +681,9 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
             @Grab.started -= instance.OnGrab;
             @Grab.performed -= instance.OnGrab;
             @Grab.canceled -= instance.OnGrab;
+            @ClickInteract.started -= instance.OnClickInteract;
+            @ClickInteract.performed -= instance.OnClickInteract;
+            @ClickInteract.canceled -= instance.OnClickInteract;
         }
 
         /// <summary>
@@ -769,5 +801,12 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnGrab(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ClickInteract" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnClickInteract(InputAction.CallbackContext context);
     }
 }
