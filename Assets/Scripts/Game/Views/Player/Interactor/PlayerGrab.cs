@@ -8,7 +8,7 @@ using Zenject;
 
 namespace Game.Views.Player.Interactor
 {
-    public class PlayerGrabInteractor : AModule
+    public class PlayerGrab : AModule
     {
         [SerializeField] private Collider _grabTrigger;
         [SerializeField] private Rigidbody _connector;

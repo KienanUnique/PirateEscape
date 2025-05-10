@@ -1,4 +1,5 @@
-﻿using Game.Core;
+﻿using System;
+using Game.Core;
 using UnityEngine;
 
 namespace Game.Views.Grab
@@ -6,6 +7,10 @@ namespace Game.Views.Grab
     public class GrabObject : AView, IGrabbable
     {
         [SerializeField] private Rigidbody _selfRigidbody;
+        [SerializeField] private RigidbodyParams _defaultParam;
+        [SerializeField] private RigidbodyParams _grabParams;
+        [SerializeField] private float _jointSpring = 150f;
+        [SerializeField] private float _jointDamper = 15f;
         
         private SpringJoint _joint;
 
@@ -13,33 +18,32 @@ namespace Game.Views.Grab
         {
             _joint = gameObject.AddComponent<SpringJoint>();
             _joint.connectedBody = connector;
-            _joint.spring = 150f;
-            _joint.damper = 15f;
+            _joint.spring = _jointSpring;
+            _joint.damper = _jointDamper;
 
-            ChangeRigidbodyParams(false);
+            SetRigidbodyParams(_grabParams);
         }
 
         public void Drop()
         {
             Destroy(_joint);
             
-            ChangeRigidbodyParams(true);
+            SetRigidbodyParams(_defaultParam);
         }
 
-        private void ChangeRigidbodyParams(bool toDefault)
+        private void SetRigidbodyParams(RigidbodyParams rigidbodyParams)
         {
-            if (toDefault)
-            {
-                _selfRigidbody.mass = 15;
-                _selfRigidbody.linearDamping = 0;
-                _selfRigidbody.angularDamping = 0.05f;
-            }
-            else
-            {
-                _selfRigidbody.mass = 5;
-                _selfRigidbody.linearDamping = 2;
-                _selfRigidbody.angularDamping = 2;
-            }
+            _selfRigidbody.mass = rigidbodyParams.Mass;
+            _selfRigidbody.linearDamping = rigidbodyParams.LinearDamping;
+            _selfRigidbody.angularDamping = rigidbodyParams.AngularDamping;
+        }
+        
+        [Serializable]
+        private class RigidbodyParams
+        {
+            public float Mass;
+            public float LinearDamping;
+            public float AngularDamping;
         }
     }
 }

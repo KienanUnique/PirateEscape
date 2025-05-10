@@ -126,6 +126,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _modules: []
   _selfRigidbody: {fileID: 8060206971569781196}
+  _defaultParam:
+    Mass: 15
+    LinearDamping: 0
+    AngularDamping: 0.05
+  _grabParams:
+    Mass: 5
+    LinearDamping: 2
+    AngularDamping: 2
 --- !u!54 &8060206971569781196
 Rigidbody:
   m_ObjectHideFlags: 0
