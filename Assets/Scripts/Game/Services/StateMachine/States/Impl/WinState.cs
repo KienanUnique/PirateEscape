@@ -1,15 +1,15 @@
-﻿using Game.Ui.Lose;
+﻿using Game.Ui.Win;
 using KoboldUi.Services.WindowsService;
 using Services.Input;
 
 namespace Game.Services.StateMachine.States.Impl
 {
-    public class LoseState : AState
+    public class WinState : AState
     {
         private readonly IInputService _inputService;
         private readonly ILocalWindowsService _localWindowsService;
 
-        public LoseState(
+        public WinState(
             IInputService inputService,
             ILocalWindowsService localWindowsService
         )
@@ -21,7 +21,7 @@ namespace Game.Services.StateMachine.States.Impl
         protected override void HandleEnter()
         {
             _inputService.SwitchToUiAnyKeyInput();
-            _localWindowsService.OpenWindow<LoseWindow>();
+            _localWindowsService.OpenWindow<WinWindow>();
         }
 
         protected override void HandleExit()

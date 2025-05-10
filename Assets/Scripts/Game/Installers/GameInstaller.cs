@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Alchemy.Inspector;
 using Game.Services.CameraHolder.Impl;
 using Game.Services.Dialog.Impl;
@@ -9,8 +8,8 @@ using Game.Services.StateMachine.Impl;
 using Game.Timer.Impl;
 using Game.Utils.NonBindedViews;
 using Game.Views.Player;
-using Game.Views.TalkableCharacter;
 using Game.Views.Timer;
+using Game.Views.WinTrigger;
 using Services.FmodSound.Impl.Game.Impl;
 using UnityEditor;
 using UnityEngine;
@@ -24,6 +23,7 @@ namespace Game.Installers
         [SerializeField] private TimerView _timerInstance;
         [SerializeField] private NonBindedViewsHolder _nonBindedViewsHolder;
         [SerializeField] private Camera _cameraInstance;
+        [SerializeField] private WinTriggerView _winTriggerViewInstance;
         
         public override void InstallBindings()
         {
@@ -35,6 +35,7 @@ namespace Game.Installers
         {
             Container.BindInterfacesAndSelfTo<PlayerView>().FromInstance(_playerInstance).AsSingle();
             Container.BindInterfacesAndSelfTo<TimerView>().FromInstance(_timerInstance).AsSingle();
+            Container.BindInterfacesAndSelfTo<WinTriggerView>().FromInstance(_winTriggerViewInstance).AsSingle();
         }
 
         private void BindServices()
@@ -56,6 +57,7 @@ namespace Game.Installers
             _timerInstance = FindFirstObjectByType<TimerView>();
             _cameraInstance = FindFirstObjectByType<Camera>();
             _nonBindedViewsHolder = FindFirstObjectByType<NonBindedViewsHolder>();
+            _winTriggerViewInstance = FindFirstObjectByType<WinTriggerView>();
             
             EditorUtility.SetDirty(this);
             AssetDatabase.SaveAssetIfDirty(this);
