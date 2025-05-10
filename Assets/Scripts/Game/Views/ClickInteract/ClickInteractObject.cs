@@ -7,6 +7,7 @@ namespace Game.Views.ClickInteract
     public class ClickInteractObject : AView, IClickInteractable
     {
         private readonly ReactiveCommand _finishInteractProgress = new();
+        //_finishInteractProgress.Execute(transform(root).GetHashCode()) something like this logic for activate after complete clicks
         
         [SerializeField] private float _progressPerClick = 0.35f;
 
