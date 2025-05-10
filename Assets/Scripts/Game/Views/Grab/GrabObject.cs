@@ -5,9 +5,9 @@ namespace Game.Views.Grab
 {
     public class GrabObject : AView, IGrabbable
     {
-        private SpringJoint _joint;
+        [SerializeField] private Rigidbody _selfRigidbody;
         
-        public Vector3 Position => transform.position;
+        private SpringJoint _joint;
 
         public void Grab(Rigidbody connector)
         {
@@ -15,14 +15,31 @@ namespace Game.Views.Grab
             _joint.connectedBody = connector;
             _joint.spring = 150f;
             _joint.damper = 15f;
-            //_joint.autoConfigureConnectedAnchor = false;
-            //_joint.anchor = Vector3.zero;
-            //_joint.connectedAnchor = Vector3.zero;
+
+            ChangeRigidbodyParams(false);
         }
 
         public void Drop()
         {
             Destroy(_joint);
+            
+            ChangeRigidbodyParams(true);
+        }
+
+        private void ChangeRigidbodyParams(bool toDefault)
+        {
+            if (toDefault)
+            {
+                _selfRigidbody.mass = 15;
+                _selfRigidbody.linearDamping = 0;
+                _selfRigidbody.angularDamping = 0.05f;
+            }
+            else
+            {
+                _selfRigidbody.mass = 5;
+                _selfRigidbody.linearDamping = 2;
+                _selfRigidbody.angularDamping = 2;
+            }
         }
     }
 }

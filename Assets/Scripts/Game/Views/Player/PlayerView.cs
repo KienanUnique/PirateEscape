@@ -10,8 +10,10 @@ namespace Game.Views.Player
     {
         [SerializeField] private PlayerMovement _playerMovement;
         [SerializeField] private PlayerInteractor _playerInteractor;
+        [SerializeField] private PlayerGrabInteractor _playerGrab;
 
         public ReadOnlyReactiveProperty<bool> CanInteract => _playerInteractor.CanInteract;
+        public ReadOnlyReactiveProperty<bool> CanGrab => _playerGrab.CanGrab;
 
         public void EnableActions()
         {

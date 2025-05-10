@@ -18,6 +18,9 @@ namespace Game.Views.Player.Interactor
         private bool _isGrab;
         private IGrabbable _grabObject;
         private IGrabbable _possibleGrabObject;
+        private readonly ReactiveProperty<bool> _canGrab = new();
+
+        public ReadOnlyReactiveProperty<bool> CanGrab => _canGrab;
 
         public override void Initialize()
         {
@@ -36,6 +39,11 @@ namespace Game.Views.Player.Interactor
                 return;
             
             _possibleGrabObject = grabbable;
+
+            if (!_isGrab)
+            {
+                _canGrab.Value = true;
+            }
         }
         
         private void OnGrabObjectAreaExit(Collider  other)
@@ -49,6 +57,7 @@ namespace Game.Views.Player.Interactor
             if (_possibleGrabObject == grabbable)
             {
                 _possibleGrabObject = null;
+                _canGrab.Value = false;
             }
         }
         
@@ -66,13 +75,13 @@ namespace Game.Views.Player.Interactor
             }
             else
             {
-                if (_possibleGrabObject != null)
-                {
-                    _grabObject = _possibleGrabObject;
-                    _grabObject.Grab(_connector);
-                }
+                if (_possibleGrabObject == null) 
+                    return;
                 
+                _grabObject = _possibleGrabObject;
+                _grabObject.Grab(_connector);
                 _isGrab = true;
+                _canGrab.Value = false;
             }
         }
     }

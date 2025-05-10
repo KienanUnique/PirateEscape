@@ -393,6 +393,7 @@ MonoBehaviour:
   - {fileID: 938163684993363412}
   _playerMovement: {fileID: 9029563477051713039}
   _playerInteractor: {fileID: 2953960709008262951}
+  _playerGrab: {fileID: 938163684993363412}
 --- !u!114 &9029563477051713039
 MonoBehaviour:
   m_ObjectHideFlags: 0
