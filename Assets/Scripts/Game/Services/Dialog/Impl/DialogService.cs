@@ -8,6 +8,8 @@ namespace Game.Services.Dialog.Impl
     {
         private readonly ReactiveCommand _dialogStarted = new();
         private readonly ReactiveCommand _dialogComplete = new();
+        private readonly ReactiveCommand _winRequested = new();
+        private readonly ReactiveCommand _loseRequested = new();
         private readonly ReactiveCommand<IDialogProvider> _needStartDialog = new();
 
         private IDialogProvider _currentDialog = null;
@@ -15,7 +17,9 @@ namespace Game.Services.Dialog.Impl
         public Observable<Unit> DialogStarted => _dialogStarted;
         public Observable<Unit> DialogComplete => _dialogComplete;
         public Observable<IDialogProvider> NeedStartDialog => _needStartDialog;
-        
+        public Observable<Unit> WinRequested => _winRequested;
+        public Observable<Unit> LoseRequested => _loseRequested;
+
         public void StartDialog(IDialogProvider dialog)
         {
             if (_currentDialog != null)
@@ -39,6 +43,16 @@ namespace Game.Services.Dialog.Impl
             
             _currentDialog = null;
             _dialogComplete.Execute(Unit.Default);
+        }
+
+        public void RequestWin()
+        {
+            _winRequested.Execute(Unit.Default);
+        }
+
+        public void RequestLose()
+        {
+            _loseRequested.Execute(Unit.Default);
         }
     }
 }

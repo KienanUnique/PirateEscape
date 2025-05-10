@@ -7,5 +7,7 @@ namespace Game.Db.Dialog.Impl
     public class DialogParameters : ScriptableObject, IDialogParameters
     {
         [field: SerializeField] public string ChangeAvatarCommandName { get; private set; } = "change_avatar";
+        [field: SerializeField] public string WinCommandName { get; private set; } = "win";
+        [field: SerializeField] public string LoseCommandName { get; private set; } = "lose";
     }
 }
