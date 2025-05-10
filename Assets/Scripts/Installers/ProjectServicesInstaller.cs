@@ -3,6 +3,7 @@ using Services.FmodSound.Impl.Background.Impl;
 using Services.FmodSound.Impl.Ui.Impl;
 using Services.Input.Impl;
 using Services.Scenes.Impl;
+using Services.Session.Impl;
 using Services.Settings.Impl;
 using Zenject;
 
@@ -20,6 +21,7 @@ namespace Installers
             Container.BindInterfacesTo<UiSoundsService>().AsSingle();
             Container.BindInterfacesTo<BackgroundMusicService>().AsSingle();
             Container.BindInterfacesTo<GlobalSoundsService>().AsSingle();
+            Container.BindInterfacesTo<SessionService>().AsSingle();
         }
     }
 }
