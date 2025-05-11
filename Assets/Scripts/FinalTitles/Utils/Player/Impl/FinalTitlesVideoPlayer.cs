@@ -12,15 +12,14 @@ namespace FinalTitles.Utils.Player.Impl
 
         [Range(0f, 1f)] [SerializeField] private float _startVideoVolume = 0.5f;
         [SerializeField] private VideoPlayer _videoPlayer;
-        [SerializeField] private string _videoName = "VC_Final.mp4";
 
         [Inject] private ISettingsStorageService _settingsStorage;
 
         public Observable<Unit> VideoEnded => _videoEnded;
 
-        public void Play()
+        public void Play(string videoName)
         {
-            _videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, _videoName);
+            _videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, videoName);
 
             var needVolume = _settingsStorage.MasterVolume.CurrentValue * _startVideoVolume;
             for (ushort i = 0; i < _videoPlayer.controlledAudioTrackCount; i++)
