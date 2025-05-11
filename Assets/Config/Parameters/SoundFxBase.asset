@@ -12,7 +12,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b583a39d42743ba8752cbe4ab0ef1ef, type: 3}
   m_Name: SoundFxBase
   m_EditorClassIdentifier: 
-  gameSounds: []
+  gameSounds:
+  - UiSoundName: 0
+    GameSoundType: 1
+    EventReference:
+      Guid:
+        Data1: 1125695758
+        Data2: 1153030278
+        Data3: -902959971
+        Data4: -930647679
+      Path: event:/Footstep
+  - UiSoundName: 0
+    GameSoundType: 3
+    EventReference:
+      Guid:
+        Data1: -1429606705
+        Data2: 1082146390
+        Data3: -402966873
+        Data4: -1275413727
+      Path: event:/Drop
+  - UiSoundName: 0
+    GameSoundType: 2
+    EventReference:
+      Guid:
+        Data1: -691509401
+        Data2: 1330521590
+        Data3: -1051147596
+        Data4: 1631102867
+      Path: event:/Grab
+  - UiSoundName: 0
+    GameSoundType: 4
+    EventReference:
+      Guid:
+        Data1: 1984102920
+        Data2: 1249482151
+        Data3: 1079739067
+        Data4: -863224884
+      Path: event:/HitDistractible
   uiSounds:
   - UiSoundName: 1
     GameSoundType: 0
@@ -23,7 +59,6 @@ MonoBehaviour:
         Data3: 948061570
         Data4: 325229417
       Path: event:/Intro
-  <BackgroundMusicTypeParameterName>k__BackingField: parameter:/BackgroundMusicType
   <BackgroundMusicEventReference>k__BackingField:
     Guid:
       Data1: 954924322
@@ -32,11 +67,6 @@ MonoBehaviour:
       Data4: -190830882
     Path: event:/BackgroundMusic
   __alchemySerializationData_Db_Sounds_Impl_SoundFxBase:
-    _backgroundMusic:
-      isCreated: 1
-      data: "[\n    {\n        \"Key\": 0,\n        \"Value\": \"None\"\n    },\n   
-        {\n        \"Key\": 1,\n        \"Value\": \"MainMenu\"\n    },\n    {\n       
-        \"Key\": 2,\n        \"Value\": \"Game\"\n    }\n]"
     _soundGroupBuses:
       isCreated: 1
       data: "[\n    {\n        \"Key\": 0,\n        \"Value\": \"bus:/Music\"\n   

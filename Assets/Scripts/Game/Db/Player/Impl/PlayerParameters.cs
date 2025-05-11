@@ -16,5 +16,7 @@ namespace Game.Db.Player.Impl
         [field: SerializeField] public float JumpForce { get; private set; } = 450f;
         [field: SerializeField] public float JumpCooldown { get; private set; } = 0.5f;
         [field: SerializeField] public float LookVerticalClamp { get; private set; } = 90f;
+        [field: SerializeField] public float FootstepCooldown { get; private set; } = 0.4f;
+        [field: SerializeField] public float SprintFootstepCooldown { get; private set; } = 0.2f;
     }
 }
