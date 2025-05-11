@@ -71,6 +71,7 @@ namespace Game.Services.StateMachine.States.Impl
 
         private void OnDialogStarted()
         {
+            _timerService.SetPause(true);
             _localWindowsService.OpenWindow<DialogWindow>();
             _player.DisableActions();
             _inputService.SwitchToUiInput();
@@ -78,6 +79,7 @@ namespace Game.Services.StateMachine.States.Impl
         
         private void OnDialogComplete()
         {
+            _timerService.SetPause(false);
             _localWindowsService.TryBackWindow();
             _player.EnableActions();
             _inputService.SwitchToGameInput();

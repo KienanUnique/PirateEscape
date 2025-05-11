@@ -13,6 +13,7 @@ namespace Game.Timer.Impl
         private readonly ITimerParameters _timerParameters;
         
         private IDisposable _timerDisposable;
+        private bool _isPaused;
 
         public Observable<Unit> TimerEnded => _timeElapsed;
         public ReadOnlyReactiveProperty<TimeSpan> RemainingTime => _remainingTime;
@@ -33,6 +34,9 @@ namespace Game.Timer.Impl
 
         private void CountDownSecond()
         {
+            if (_isPaused)
+                return;
+            
             var newRemainingTime = _remainingTime.Value - _oneSecondTimeSpan;
             if (newRemainingTime.TotalSeconds <= 0)
             {
@@ -49,6 +53,11 @@ namespace Game.Timer.Impl
         public void StopLoseTimer()
         {
             _timerDisposable?.Dispose();
+        }
+
+        public void SetPause(bool isPaused)
+        {
+            _isPaused = isPaused;
         }
 
         public void Dispose()
