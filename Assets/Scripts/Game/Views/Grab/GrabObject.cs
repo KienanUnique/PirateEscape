@@ -1,10 +1,9 @@
 ﻿using System;
-using Game.Core;
 using UnityEngine;
 
 namespace Game.Views.Grab
 {
-    public class GrabObject : AView, IGrabbable
+    public class GrabObject : MonoBehaviour, IGrabbable
     {
         [SerializeField] private Rigidbody _selfRigidbody;
         [SerializeField] private RigidbodyParams _defaultParam;
