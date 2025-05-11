@@ -5,6 +5,6 @@ namespace FinalTitles.Utils.Player
     public interface IFinalTitlesVideoPlayer
     { 
         Observable<Unit> VideoEnded { get; }
-        void Play();
+        void Play(string videoName);
     }
 }

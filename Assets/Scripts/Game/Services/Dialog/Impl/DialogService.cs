@@ -1,6 +1,7 @@
 ﻿using Game.Db.Dialog;
 using R3;
 using UnityEngine;
+using Utils;
 
 namespace Game.Services.Dialog.Impl
 {
@@ -8,17 +9,24 @@ namespace Game.Services.Dialog.Impl
     {
         private readonly ReactiveCommand _dialogStarted = new();
         private readonly ReactiveCommand _dialogComplete = new();
-        private readonly ReactiveCommand _winRequested = new();
+        private readonly ReactiveCommand<EWinEnding> _winRequested = new();
         private readonly ReactiveCommand _loseRequested = new();
         private readonly ReactiveCommand<IDialogProvider> _needStartDialog = new();
+        
+        private readonly IDialogParameters _dialogParameters;
 
         private IDialogProvider _currentDialog = null;
 
         public Observable<Unit> DialogStarted => _dialogStarted;
         public Observable<Unit> DialogComplete => _dialogComplete;
         public Observable<IDialogProvider> NeedStartDialog => _needStartDialog;
-        public Observable<Unit> WinRequested => _winRequested;
+        public Observable<EWinEnding> WinRequested => _winRequested;
         public Observable<Unit> LoseRequested => _loseRequested;
+
+        public DialogService(IDialogParameters dialogParameters)
+        {
+            _dialogParameters = dialogParameters;
+        }
 
         public void StartDialog(IDialogProvider dialog)
         {
@@ -45,9 +53,10 @@ namespace Game.Services.Dialog.Impl
             _dialogComplete.Execute(Unit.Default);
         }
 
-        public void RequestWin()
+        public void RequestWin(string winEndingName)
         {
-            _winRequested.Execute(Unit.Default);
+            var ending = _dialogParameters.GetEndingByName(winEndingName);
+            _winRequested.Execute(ending);
         }
 
         public void RequestLose()

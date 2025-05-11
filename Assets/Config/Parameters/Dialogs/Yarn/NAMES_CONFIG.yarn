@@ -20,3 +20,9 @@ title: DECLARE_NAMES
 <<declare $rat = "Rat">>
 <<declare $tarakan = "Tarakan">>
 ===
+
+title: DECLARE_ENDINGS
+---
+<<declare $win_defuse = "defuse">>
+<<declare $win_meal = "meal">>
+===

@@ -29,7 +29,7 @@ namespace Game.Ui.Dialog.Dialog
             _dialogService.NeedStartDialog.Subscribe(OnNeedStartDialog).AddTo(View);
             View.Runner.onDialogueComplete.AsObservable().Subscribe(_ => OnDialogComplete()).AddTo(View);
             View.Runner.AddCommandHandler<string>(_dialogParameters.ChangeAvatarCommandName, TryChangeAvatar);
-            View.Runner.AddCommandHandler(_dialogParameters.WinCommandName, _dialogService.RequestWin);
+            View.Runner.AddCommandHandler<string>(_dialogParameters.WinCommandName, _dialogService.RequestWin);
             View.Runner.AddCommandHandler(_dialogParameters.LoseCommandName, _dialogService.RequestLose);
 
             View.HideAvatarInstantly();

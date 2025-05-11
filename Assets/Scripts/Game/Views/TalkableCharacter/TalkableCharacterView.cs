@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using Alchemy.Inspector;
+using DG.Tweening;
 using Game.Core;
 using Game.Db.Dialog.Impl;
 using Game.Services.Dialog;
@@ -25,7 +26,10 @@ namespace Game.Views.TalkableCharacter
         [SerializeField] private Ease _disappearEase = Ease.InCubic;
         
         [SerializeField] private DialogProvider _dialog;
-        [SerializeField] private Image _image;
+        
+        [Header("Optional")]
+        [SerializeField] 
+        private Image _image;
         
         [Inject] private IDialogService _dialogService;
         
@@ -52,6 +56,9 @@ namespace Game.Views.TalkableCharacter
 
         private void OnIsInDialog(bool isInDialog)
         {
+            if (_image == null)
+                return;
+            
             var targetAlpha = isInDialog ? HIDE_ALPHA_VALUE : SHOW_ALPHA_VALUE;
             var targetDuration = isInDialog ? _disappearDuration : _appearDuration;
             var targetEase = isInDialog ? _disappearEase : _appearEase;

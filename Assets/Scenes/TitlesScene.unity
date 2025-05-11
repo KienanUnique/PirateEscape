@@ -284,6 +284,14 @@ PrefabInstance:
       value: TitlesVideoPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 3479563141093820496, guid: c4da6d6d7e61b3b4eadc612bec5a7f4c, type: 3}
+      propertyPath: m_Url
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3479563141093820496, guid: c4da6d6d7e61b3b4eadc612bec5a7f4c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3479563141093820496, guid: c4da6d6d7e61b3b4eadc612bec5a7f4c, type: 3}
       propertyPath: m_TargetCamera
       value: 
       objectReference: {fileID: 519420031}

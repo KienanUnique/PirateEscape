@@ -9,6 +9,8 @@ using Game.Views.WinTrigger;
 using KoboldUi.Services.WindowsService;
 using R3;
 using Services.Input;
+using Services.Session;
+using Utils;
 
 namespace Game.Services.StateMachine.States.Impl
 {
@@ -21,6 +23,7 @@ namespace Game.Services.StateMachine.States.Impl
         private readonly ILocalWindowsService _localWindowsService;
         private readonly IWinTriggerView _winTriggerView;
         private readonly IPauseService _pauseService;
+        private readonly ISessionService _sessionService;
 
         public GameState(
             IPlayer player,
@@ -29,7 +32,8 @@ namespace Game.Services.StateMachine.States.Impl
             IDialogService dialogService,
             ILocalWindowsService localWindowsService,
             IWinTriggerView winTriggerView,
-            IPauseService pauseService
+            IPauseService pauseService,
+            ISessionService sessionService
         )
         {
             _player = player;
@@ -39,6 +43,7 @@ namespace Game.Services.StateMachine.States.Impl
             _localWindowsService = localWindowsService;
             _winTriggerView = winTriggerView;
             _pauseService = pauseService;
+            _sessionService = sessionService;
         }
 
         protected override void HandleEnter()
@@ -50,8 +55,8 @@ namespace Game.Services.StateMachine.States.Impl
             _timerService.StartLoseTimer();
 
             _timerService.TimerEnded.Subscribe(_ => Lose()).AddTo(ActiveDisposable);
-            _winTriggerView.PlayerEntered.Subscribe(_ => Win()).AddTo(ActiveDisposable);
-            _dialogService.WinRequested.Subscribe(_ => Win()).AddTo(ActiveDisposable);
+            _winTriggerView.WinRequested.Subscribe(Win).AddTo(ActiveDisposable);
+            _dialogService.WinRequested.Subscribe(Win).AddTo(ActiveDisposable);
             _dialogService.LoseRequested.Subscribe(_ => Lose()).AddTo(ActiveDisposable);
             
             _dialogService.DialogStarted.Subscribe(_ => OnDialogStarted()).AddTo(ActiveDisposable);
@@ -98,8 +103,9 @@ namespace Game.Services.StateMachine.States.Impl
             }
         }
 
-        private void Win()
+        private void Win(EWinEnding ending)
         {
+            _sessionService.HandleWin(ending);
             GameStateMachine.Enter<WinState>();
         }
 

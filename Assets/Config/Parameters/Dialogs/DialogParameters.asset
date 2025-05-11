@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1050007a79468881e72cf837fe13d8, type: 3}
   m_Name: DialogParameters
   m_EditorClassIdentifier: 
+  _endingVos:
+  - <EndingName>k__BackingField: defuse
+    <EndingType>k__BackingField: 1
+  - <EndingName>k__BackingField: meal
+    <EndingType>k__BackingField: 2
   <ChangeAvatarCommandName>k__BackingField: change_avatar
+  <WinCommandName>k__BackingField: win
+  <LoseCommandName>k__BackingField: lose
