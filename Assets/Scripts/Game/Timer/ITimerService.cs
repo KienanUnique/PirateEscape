@@ -10,5 +10,6 @@ namespace Game.Timer
         
         void StartLoseTimer();
         void StopLoseTimer();
+        void SetPause(bool isPaused);
     }
 }
