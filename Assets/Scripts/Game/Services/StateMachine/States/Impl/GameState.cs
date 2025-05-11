@@ -1,12 +1,16 @@
 ﻿using Game.Services.Dialog;
+using Game.Services.Pause;
 using Game.Timer;
 using Game.Ui.Dialog;
 using Game.Ui.Gameplay;
+using Game.Ui.Pause;
 using Game.Views.Player;
 using Game.Views.WinTrigger;
 using KoboldUi.Services.WindowsService;
 using R3;
 using Services.Input;
+using Services.Session;
+using Utils;
 
 namespace Game.Services.StateMachine.States.Impl
 {
@@ -18,6 +22,8 @@ namespace Game.Services.StateMachine.States.Impl
         private readonly IDialogService _dialogService;
         private readonly ILocalWindowsService _localWindowsService;
         private readonly IWinTriggerView _winTriggerView;
+        private readonly IPauseService _pauseService;
+        private readonly ISessionService _sessionService;
 
         public GameState(
             IPlayer player,
@@ -25,7 +31,9 @@ namespace Game.Services.StateMachine.States.Impl
             ITimerService timerService,
             IDialogService dialogService,
             ILocalWindowsService localWindowsService,
-            IWinTriggerView winTriggerView
+            IWinTriggerView winTriggerView,
+            IPauseService pauseService,
+            ISessionService sessionService
         )
         {
             _player = player;
@@ -34,6 +42,8 @@ namespace Game.Services.StateMachine.States.Impl
             _dialogService = dialogService;
             _localWindowsService = localWindowsService;
             _winTriggerView = winTriggerView;
+            _pauseService = pauseService;
+            _sessionService = sessionService;
         }
 
         protected override void HandleEnter()
@@ -45,12 +55,16 @@ namespace Game.Services.StateMachine.States.Impl
             _timerService.StartLoseTimer();
 
             _timerService.TimerEnded.Subscribe(_ => Lose()).AddTo(ActiveDisposable);
-            _winTriggerView.PlayerEntered.Subscribe(_ => Win()).AddTo(ActiveDisposable);
-            _dialogService.WinRequested.Subscribe(_ => Win()).AddTo(ActiveDisposable);
+            _winTriggerView.WinRequested.Subscribe(Win).AddTo(ActiveDisposable);
+            _dialogService.WinRequested.Subscribe(Win).AddTo(ActiveDisposable);
             _dialogService.LoseRequested.Subscribe(_ => Lose()).AddTo(ActiveDisposable);
             
             _dialogService.DialogStarted.Subscribe(_ => OnDialogStarted()).AddTo(ActiveDisposable);
             _dialogService.DialogComplete.Subscribe(_ => OnDialogComplete()).AddTo(ActiveDisposable);
+            
+            _pauseService.IsPaused.Subscribe(HandlePause).AddTo(ActiveDisposable);
+            _inputService.PausePressed.Subscribe(_ => OnPausePressed()).AddTo(ActiveDisposable);
+            _inputService.UiExitPressed.Subscribe(_ => OnExitPressed()).AddTo(ActiveDisposable);
         }
 
         protected override void HandleExit()
@@ -58,9 +72,40 @@ namespace Game.Services.StateMachine.States.Impl
             _timerService.StopLoseTimer();
             _player.DisableActions();
         }
-
-        private void Win()
+        
+        private void OnPausePressed()
         {
+            if (_pauseService.IsPaused.CurrentValue)
+                return;
+            
+            _pauseService.Pause();
+        }
+        
+        private void OnExitPressed()
+        {
+            if (!_pauseService.IsPaused.CurrentValue)
+                return;
+            
+            _pauseService.Unpause();
+        }
+        
+        private void HandlePause(bool isPaused)
+        {
+            if (isPaused)
+            {
+                _inputService.SwitchToUiInput();
+                _localWindowsService.OpenWindow<PauseWindow>();
+            }
+            else
+            {
+                _inputService.SwitchToGameInput();
+                _localWindowsService.OpenWindow<GameplayWindow>();
+            }
+        }
+
+        private void Win(EWinEnding ending)
+        {
+            _sessionService.HandleWin(ending);
             GameStateMachine.Enter<WinState>();
         }
 

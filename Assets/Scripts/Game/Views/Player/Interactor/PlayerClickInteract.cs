@@ -67,6 +67,11 @@ namespace Game.Views.Player.Interactor
             _gameSoundFxService.PlaySound(EGameSoundFxType.HitDistractible);
             _chosenClickInteractable.Value.Interact();
             _clickOnObjectInteractable.Execute(Unit.Default);
+
+            if (_chosenClickInteractable.CurrentValue.CanInteract)
+                return;
+            
+            _chosenClickInteractable.Value = null;
         }
 
         private void UpdateClosestClickInteractable()
@@ -83,6 +88,9 @@ namespace Game.Views.Player.Interactor
             
             foreach (var interactable in _clickInteractables)
             {
+                if (!interactable.CanInteract)
+                    continue;
+                
                 var distance = (interactable.Position - thisPosition).sqrMagnitude;
                 if (distance > closestDistance)
                     continue;

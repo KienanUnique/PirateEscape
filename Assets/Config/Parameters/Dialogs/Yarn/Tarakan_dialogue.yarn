@@ -1,0 +1,71 @@
+﻿title: Tarakan_dialogue
+position: 60,-369
+---
+<<change_avatar {$AV_tarakan_smile}>>
+
+{$tarakan}: Hi! WHO ARE YOU?
+{$tarakan}: My NAME is Tarakan!
+    -> My Name is Pirate, i am a parrot
+        <<change_avatar {$AV_tarakan_jojo}>>
+        {$tarakan}:A PARROT?!? 
+        {$tarakan}:Dont know what it means.
+        <<jump Doing_here>>
+    -> Bye
+        <<change_avatar {$AV_tarakan_obama}>>
+===
+title: Doing_here
+position: 68,-191
+---
+    <<change_avatar {$AV_tarakan_smile}>>
+{$tarakan}:By the way, what are you doing here Pirate?
+    -> Just talking to you .
+        <<change_avatar {$AV_tarakan_jojo}>>
+        {$tarakan}: Ok, do YOU wanna eat?
+        -> No! I need to turn off that kettle!
+            <<change_avatar {$AV_tarakan_obama}>>
+            <<jump Kettle>>
+        -> Yea, there is no such thing as too much food! 
+            <<change_avatar {$AV_tarakan_smile}>>
+            <<jump Food>>
+    -> Trying to turn of that kettle.
+        <<change_avatar {$AV_tarakan_jojo}>>
+        {$tarakan}: Ok, do YOU wanna eat?
+        -> No! I need to turn off that kettle!
+            <<change_avatar {$AV_tarakan_obama}>>
+            <<jump Kettle>>
+        -> Yea, there is no such thing as too much food! 
+            <<change_avatar {$AV_tarakan_smile}>>
+            <<jump Food>>
+===
+title: Kettle
+position: -53,72
+---
+<<change_avatar {$AV_tarakan_jojo}>>
+{$tarakan}:Why, WHYYY do YOU want that ?
+    -> Its gonna blow up and destroy this cage! 
+        <<change_avatar {$AV_tarakan_smile}>>
+        {$tarakan}:So what? Lets get some food bud!
+        <<change_avatar {$AV_tarakan_jojo}>>
+        {$tarakan}:You must be hungry
+        <<change_avatar {$AV_tarakan_smile}>>
+        {$tarakan}:Go take some food for us
+        <<change_avatar {$AV_tarakan_jojo}>>
+        {$tarakan}:There's bowl outside, go get some food.
+        <<change_avatar {$AV_tarakan_smile}>>
+    -> None of your business. 
+    <<change_avatar {$AV_tarakan_obama}>>
+===
+title: Food
+position: 293,79
+---
+<<change_avatar {$AV_tarakan_jojo}>>
+{$tarakan}:Nice, do YOU see that bowl with FOOD?
+{$tarakan}:When you get out, take something to eat for us, ok?
+    -> Allright, lets eat !
+        <<change_avatar {$AV_tarakan_smile}>>
+        {$tarakan}: Yay! Hurry up!
+    -> Nah, i will eat all of the food by my self
+        <<change_avatar {$AV_tarakan_obama}>>
+        {$tarakan}: Thats not very nice...
+        {$tarakan}: Sad...
+===

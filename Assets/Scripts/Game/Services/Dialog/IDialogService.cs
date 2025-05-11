@@ -1,5 +1,6 @@
 ﻿using Game.Db.Dialog;
 using R3;
+using Utils;
 
 namespace Game.Services.Dialog
 {
@@ -8,12 +9,12 @@ namespace Game.Services.Dialog
         Observable<Unit> DialogStarted { get; }
         Observable<Unit> DialogComplete { get; }
         Observable<IDialogProvider> NeedStartDialog { get; }
-        Observable<Unit> WinRequested { get; }
+        Observable<EWinEnding> WinRequested { get; }
         Observable<Unit> LoseRequested { get; }
         
         void StartDialog(IDialogProvider dialog);
         void HandleDialogComplete();
-        void RequestWin();
+        void RequestWin(string winEnding);
         void RequestLose();
     }
 }
