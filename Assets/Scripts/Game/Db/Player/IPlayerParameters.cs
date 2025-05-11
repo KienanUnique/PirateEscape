@@ -12,5 +12,7 @@
         float JumpForce { get; }
         float JumpCooldown { get; }
         float LookVerticalClamp { get; }
+        float FootstepCooldown { get; }
+        float SprintFootstepCooldown { get; }
     }
 }

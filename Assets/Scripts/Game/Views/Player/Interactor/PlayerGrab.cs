@@ -2,6 +2,8 @@
 using Game.Utils.Layers;
 using R3;
 using R3.Triggers;
+using Services.FmodSound.Impl.Game;
+using Services.FmodSound.Utils;
 using Services.Input;
 using UnityEngine;
 using Zenject;
@@ -14,6 +16,7 @@ namespace Game.Views.Player.Interactor
         [SerializeField] private Rigidbody _connector;
 
         [Inject] private IInputService _inputService;
+        [Inject] private IGameSoundFxService _gameSoundFxService;
         
         private bool _isGrab;
         private IGrabbable _grabObject;
@@ -67,6 +70,7 @@ namespace Game.Views.Player.Interactor
             {
                 if (_grabObject != null)
                 {
+                    _gameSoundFxService.PlaySound(EGameSoundFxType.Drop);
                     _grabObject.Drop();
                     _grabObject = null;
                 }
@@ -79,6 +83,7 @@ namespace Game.Views.Player.Interactor
                     return;
                 
                 _grabObject = _possibleGrabObject;
+                _gameSoundFxService.PlaySound(EGameSoundFxType.Grab);
                 _grabObject.Grab(_connector);
                 _isGrab = true;
                 _canGrab.Value = false;
