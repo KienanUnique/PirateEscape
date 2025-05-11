@@ -121,5 +121,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eca4fddd026438eb48b6b4c8f93caef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _modules: []
-  _progressPerClick: 0.35
+  _progressPerClick: 0
+  <MaxProgress>k__BackingField: 10
+  _containerToScale: {fileID: 1366145131189208062}
+  _collider: {fileID: 3574571827112481942}
+  _punchedScale: 0.7
+  _punchDuration: 0.3
+  _punchEase: 1
+  _destroyDuration: 0.15
+  _destroyEase: 26
