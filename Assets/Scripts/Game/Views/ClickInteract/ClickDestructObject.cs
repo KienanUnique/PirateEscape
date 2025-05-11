@@ -18,6 +18,7 @@ namespace Game.Views.ClickInteract
         [SerializeField] private Ease _punchEase = Ease.Linear;
         
         [Header("Destroy Animation")]
+        [SerializeField] private ParticleSystem _destroyParticles;
         [SerializeField] private float _destroyDuration = 0.15f;
         [SerializeField] private Ease _destroyEase = Ease.InBack;
         
@@ -65,6 +66,7 @@ namespace Game.Views.ClickInteract
 
         private void AnimateDestruct()
         {
+            _destroyParticles.Play();
             _punchTween?.Kill();
             _containerToScale.DOScale(0f, _destroyDuration).SetEase(_destroyEase).SetLink(_containerToScale.gameObject)
                 .OnComplete(() => _collider.enabled = false);
