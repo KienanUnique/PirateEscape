@@ -25,6 +25,7 @@ namespace Game.Ui.Dialog.Dialog
         private Tween _currentTween;
         
         [field: SerializeField] public DialogueRunner Runner { get; private set; }
+        [field: SerializeField] public LineView Line { get; private set; }
 
         public void ChangeAvatar(Sprite newAvatar, bool needHidePreviousAvatar)
         {
