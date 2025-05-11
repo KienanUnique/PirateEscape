@@ -14,7 +14,7 @@ namespace Game.Ui.Win.AnyKey
 
         protected override void OnAnyKeyPressed()
         {
-            _scenesService.LoadGameScene();
+            _scenesService.LoadTitlesScene();
         }
     }
 }

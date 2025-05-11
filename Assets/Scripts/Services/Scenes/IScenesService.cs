@@ -8,5 +8,6 @@ namespace Services.Scenes
         ReadOnlyReactiveProperty<bool> IsLoadingCompleted { get; }
         
         void LoadGameScene();
+        void LoadTitlesScene();
     }
 }
