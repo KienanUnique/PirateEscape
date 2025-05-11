@@ -321,6 +321,9 @@ MonoBehaviour:
   _appearEase: 9
   _disappearDuration: 0.3
   _disappearEase: 8
+  _spriteChangeSmallestScale: 0.7
+  _spriteChangeDuration: 0.3
+  _spriteChangeEase: 9
   <Runner>k__BackingField: {fileID: 705679416044949641}
 --- !u!114 &705679416044949641
 MonoBehaviour:

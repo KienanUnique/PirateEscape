@@ -17,35 +17,36 @@ namespace Game.Ui.Dialog.Dialog
         [SerializeField] private float _appearDuration = 0.5f;  
         [SerializeField] private Ease _appearEase = Ease.OutCubic;
         
-        [Header("Disappearance")]
-        [SerializeField] private float _disappearDuration = 0.3f;  
-        [SerializeField] private Ease _disappearEase = Ease.InCubic;
+        [Header("Sprite change")]
+        [SerializeField] private float _spriteChangeSmallestScale = 0.7f;
+        [SerializeField] private float _spriteChangeDuration = 0.3f;  
+        [SerializeField] private Ease _spriteChangeEase = Ease.OutCubic;
 
-        private Sequence _currentSequence;
+        private Tween _currentTween;
         
         [field: SerializeField] public DialogueRunner Runner { get; private set; }
 
         public void ChangeAvatar(Sprite newAvatar, bool needHidePreviousAvatar)
         {
-            _currentSequence?.Kill();
+            _currentTween?.Kill(true);
+
+            if (!needHidePreviousAvatar)
+            {
+                _currentTween = _image.DOFade(SHOW_ALPHA_VALUE, _appearDuration).SetEase(_appearEase)
+                    .SetLink(_image.gameObject);
+
+                return;
+            }
             
-            _currentSequence = DOTween.Sequence();
-            if (needHidePreviousAvatar)
-                _currentSequence.Append(Disappear());
-
-            _currentSequence.AppendCallback(() => _image.sprite = newAvatar);
-            _currentSequence.Append(Appear());
-            _currentSequence.SetLink(_image.gameObject);
-        }
-
-        private Tween Appear()
-        {
-            return _image.DOFade(SHOW_ALPHA_VALUE, _appearDuration).SetEase(_appearEase);
-        }
-
-        private Tween Disappear()
-        {
-            return _image.DOFade(HIDE_ALPHA_VALUE, _disappearDuration).SetEase(_disappearEase);
+            var sequence = DOTween.Sequence();
+            var scaleDuration = _spriteChangeDuration / 2;
+            sequence.Append(_image.rectTransform.DOScale(_spriteChangeSmallestScale, scaleDuration));
+            sequence.AppendCallback(() => _image.sprite = newAvatar);
+            sequence.Append(_image.rectTransform.DOScale(1f, scaleDuration));
+            sequence.SetEase(_spriteChangeEase);
+            sequence.SetLink(_image.gameObject);
+            
+            _currentTween = sequence;
         }
 
         public void HideAvatarInstantly()

@@ -31,7 +31,10 @@ namespace Game.Ui.Dialog.Dialog
             View.Runner.AddCommandHandler<string>(_dialogParameters.ChangeAvatarCommandName, TryChangeAvatar);
             View.Runner.AddCommandHandler<string>(_dialogParameters.WinCommandName, _dialogService.RequestWin);
             View.Runner.AddCommandHandler(_dialogParameters.LoseCommandName, _dialogService.RequestLose);
+        }
 
+        protected override void OnOpen()
+        {
             View.HideAvatarInstantly();
         }
 
@@ -49,6 +52,7 @@ namespace Game.Ui.Dialog.Dialog
         {
             var newAvatarSprite = _avatarStorage.GetAvatarByName(newAvatarName);
             View.ChangeAvatar(newAvatarSprite, _isAvatarSet);
+            _isAvatarSet = true;
         }
         
         private void OnDialogComplete()
