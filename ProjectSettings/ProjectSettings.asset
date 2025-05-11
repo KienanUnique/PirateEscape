@@ -764,23 +764,23 @@ PlayerSettings:
   webGLCloseOnQuit: 0
   webWasm2023: 0
   scriptingDefineSymbols:
-    Android: DOTWEEN
-    EmbeddedLinux: DOTWEEN
+    Android: DOTWEEN;MK_TOON_STYLIZE_SYSTEM_SHADOWS
+    EmbeddedLinux: DOTWEEN;MK_TOON_STYLIZE_SYSTEM_SHADOWS
     GameCoreScarlett: DOTWEEN
-    GameCoreXboxOne: DOTWEEN
+    GameCoreXboxOne: DOTWEEN;MK_TOON_STYLIZE_SYSTEM_SHADOWS
     LinuxHeadlessSimulation: DOTWEEN
-    Nintendo Switch: DOTWEEN
-    PS4: DOTWEEN
-    PS5: DOTWEEN
-    QNX: DOTWEEN
-    ReservedCFE: DOTWEEN
-    Standalone: DOTWEEN;UNITASK_DOTWEEN_SUPPORT;KOBOLD_ALCHEMY_SUPPORT
-    VisionOS: DOTWEEN
-    WebGL: DOTWEEN
+    Nintendo Switch: DOTWEEN;MK_TOON_STYLIZE_SYSTEM_SHADOWS
+    PS4: DOTWEEN;MK_TOON_STYLIZE_SYSTEM_SHADOWS
+    PS5: DOTWEEN;MK_TOON_STYLIZE_SYSTEM_SHADOWS
+    QNX: DOTWEEN;MK_TOON_STYLIZE_SYSTEM_SHADOWS
+    ReservedCFE: DOTWEEN;MK_TOON_STYLIZE_SYSTEM_SHADOWS
+    Standalone: DOTWEEN;UNITASK_DOTWEEN_SUPPORT;KOBOLD_ALCHEMY_SUPPORT;MK_TOON_STYLIZE_SYSTEM_SHADOWS
+    VisionOS: DOTWEEN;MK_TOON_STYLIZE_SYSTEM_SHADOWS
+    WebGL: DOTWEEN;MK_TOON_STYLIZE_SYSTEM_SHADOWS
     Windows Store Apps: DOTWEEN
-    XboxOne: DOTWEEN
+    XboxOne: DOTWEEN;MK_TOON_STYLIZE_SYSTEM_SHADOWS
     iPhone: DOTWEEN
-    tvOS: DOTWEEN
+    tvOS: DOTWEEN;MK_TOON_STYLIZE_SYSTEM_SHADOWS
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
@@ -877,7 +877,7 @@ PlayerSettings:
   qnxGraphicConfPath: 
   apiCompatibilityLevel: 6
   captureStartupLogs: {}
-  activeInputHandler: 1
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: 
   framebufferDepthMemorylessMode: 0
