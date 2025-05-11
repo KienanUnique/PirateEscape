@@ -15,6 +15,7 @@ namespace Services.Input.Impl
         private readonly ReactiveCommand _grabPerformed = new();
         private readonly ReactiveCommand _clickInteractPerformed = new();
         private readonly ReactiveCommand _pausePerformed = new();
+        private readonly ReactiveCommand _uiExitPerformed = new();
         private readonly ReactiveProperty<bool> _isSprintPressed = new();
         private readonly MainControls _mainControls = new();
 
@@ -27,10 +28,14 @@ namespace Services.Input.Impl
         public Vector2 MouseLook => _mainControls.Gameplay.Look.ReadValue<Vector2>();
         public Observable<Unit> JumpPressed => _jumpPerformed;
         public Observable<Unit> PausePressed => _pausePerformed;
+        public Observable<Unit> UiExitPressed => _uiExitPerformed;
 
         public void Initialize()
         {
             _mainControls.UiAnyKey.ButtonPressed.performed += OnAnyKeyPerformed;
+            
+            _mainControls.Ui.Exit.performed += OnUiExitPerformed;
+            
             _mainControls.Gameplay.Pause.performed += OnPausePerformed;
             _mainControls.Gameplay.Jump.performed += OnJumpPerformed;
             _mainControls.Gameplay.Interaction.performed += OnInteractionPerformed;
@@ -46,14 +51,16 @@ namespace Services.Input.Impl
         {
             Cursor.lockState = CursorLockMode.Locked;
             _mainControls.UiAnyKey.Disable();
+            _mainControls.Ui.Disable();
             _mainControls.Gameplay.Enable();
         }
 
         public void SwitchToUiAnyKeyInput()
         {
             Cursor.lockState = CursorLockMode.Confined;
-            _mainControls.UiAnyKey.Enable();
             _mainControls.Gameplay.Disable();
+            _mainControls.Ui.Disable();
+            _mainControls.UiAnyKey.Enable();
         }
 
         public void SwitchToUiInput()
@@ -62,6 +69,7 @@ namespace Services.Input.Impl
 
             _mainControls.UiAnyKey.Disable();
             _mainControls.Gameplay.Disable();
+            _mainControls.Ui.Enable();
         }
 
         public void Dispose()
@@ -69,6 +77,9 @@ namespace Services.Input.Impl
             _anyKeyPressPerformed?.Dispose();
             
             _mainControls.UiAnyKey.ButtonPressed.performed -= OnAnyKeyPerformed;
+            
+            _mainControls.Ui.Exit.performed -= OnUiExitPerformed;
+            
             _mainControls.Gameplay.Pause.performed -= OnPausePerformed;
             _mainControls.Gameplay.Jump.performed -= OnJumpPerformed;
             _mainControls.Gameplay.Interaction.performed -= OnInteractionPerformed;
@@ -87,5 +98,6 @@ namespace Services.Input.Impl
         private void OnInteractionPerformed(InputAction.CallbackContext obj) => _interactionPerformed.Execute(Unit.Default);
         private void OnGrabPerformed(InputAction.CallbackContext obj) => _grabPerformed.Execute(Unit.Default);
         private void OnClickInteractPerformed(InputAction.CallbackContext obj) => _clickInteractPerformed.Execute(Unit.Default);
+        private void OnUiExitPerformed(InputAction.CallbackContext obj) => _uiExitPerformed.Execute(Unit.Default);
     }
 }

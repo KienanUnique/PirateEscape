@@ -14,6 +14,7 @@ namespace Services.Input
         Vector2 MouseLook { get; }
         Observable<Unit> JumpPressed { get; }
         Observable<Unit> PausePressed { get; }
+        Observable<Unit> UiExitPressed { get; }
         void SwitchToGameInput();
         void SwitchToUiAnyKeyInput();
         void SwitchToUiInput();
