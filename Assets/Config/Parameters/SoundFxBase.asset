@@ -49,6 +49,15 @@ MonoBehaviour:
         Data3: 1079739067
         Data4: -863224884
       Path: event:/HitDistractible
+  - UiSoundName: 0
+    GameSoundType: 5
+    EventReference:
+      Guid:
+        Data1: -27870236
+        Data2: 1132994245
+        Data3: -1030626416
+        Data4: -63036256
+      Path: event:/Explosion
   uiSounds:
   - UiSoundName: 1
     GameSoundType: 0

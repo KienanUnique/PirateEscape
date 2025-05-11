@@ -7,5 +7,6 @@ namespace Services.FmodSound.Utils
         Grab = 2,
         Drop = 3,
         HitDistractible = 4,
+        Explosion = 5,
     }
 }
