@@ -151,7 +151,7 @@ namespace Game.Views.Player.Movement
 
         private void TryPlayFootstepSound()
         {
-            if (_inputService.MoveDirection == Vector2.zero || !_isGrounded)
+            if (!_isInputEnabled || _inputService.MoveDirection == Vector2.zero || !_isGrounded)
                 return;
             
             if (_footstepCooldownTimer > 0)
