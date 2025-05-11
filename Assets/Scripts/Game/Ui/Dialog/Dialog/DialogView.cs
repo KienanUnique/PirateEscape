@@ -33,6 +33,7 @@ namespace Game.Ui.Dialog.Dialog
 
             if (!needHidePreviousAvatar)
             {
+                _image.sprite = newAvatar;
                 _currentTween = _image.DOFade(SHOW_ALPHA_VALUE, _appearDuration).SetEase(_appearEase)
                     .SetLink(_image.gameObject);
 
