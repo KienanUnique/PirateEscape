@@ -15,6 +15,7 @@ namespace Services.Input
         Observable<Unit> JumpPressed { get; }
         Observable<Unit> PausePressed { get; }
         Observable<Unit> UiExitPressed { get; }
+        Observable<Unit> ShoutPerformed { get; }
         void SwitchToGameInput();
         void SwitchToUiAnyKeyInput();
         void SwitchToUiInput();

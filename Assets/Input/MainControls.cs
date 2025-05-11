@@ -212,6 +212,15 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shout"",
+                    ""type"": ""Button"",
+                    ""id"": ""8aa547ed-bf29-448d-b5aa-458b6d9d6e84"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -346,6 +355,17 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
                     ""action"": ""ClickInteract"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""725cd36a-2409-4d94-94f2-e9898eb98a45"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shout"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -399,6 +419,7 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
         m_Gameplay_Interaction = m_Gameplay.FindAction("Interaction", throwIfNotFound: true);
         m_Gameplay_Grab = m_Gameplay.FindAction("Grab", throwIfNotFound: true);
         m_Gameplay_ClickInteract = m_Gameplay.FindAction("ClickInteract", throwIfNotFound: true);
+        m_Gameplay_Shout = m_Gameplay.FindAction("Shout", throwIfNotFound: true);
         // Ui
         m_Ui = asset.FindActionMap("Ui", throwIfNotFound: true);
         m_Ui_Exit = m_Ui.FindAction("Exit", throwIfNotFound: true);
@@ -588,6 +609,7 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Interaction;
     private readonly InputAction m_Gameplay_Grab;
     private readonly InputAction m_Gameplay_ClickInteract;
+    private readonly InputAction m_Gameplay_Shout;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -631,6 +653,10 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/ClickInteract".
         /// </summary>
         public InputAction @ClickInteract => m_Wrapper.m_Gameplay_ClickInteract;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/Shout".
+        /// </summary>
+        public InputAction @Shout => m_Wrapper.m_Gameplay_Shout;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -681,6 +707,9 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
             @ClickInteract.started += instance.OnClickInteract;
             @ClickInteract.performed += instance.OnClickInteract;
             @ClickInteract.canceled += instance.OnClickInteract;
+            @Shout.started += instance.OnShout;
+            @Shout.performed += instance.OnShout;
+            @Shout.canceled += instance.OnShout;
         }
 
         /// <summary>
@@ -716,6 +745,9 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
             @ClickInteract.started -= instance.OnClickInteract;
             @ClickInteract.performed -= instance.OnClickInteract;
             @ClickInteract.canceled -= instance.OnClickInteract;
+            @Shout.started -= instance.OnShout;
+            @Shout.performed -= instance.OnShout;
+            @Shout.canceled -= instance.OnShout;
         }
 
         /// <summary>
@@ -936,6 +968,13 @@ public partial class @MainControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnClickInteract(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Shout" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnShout(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Ui" which allows adding and removing callbacks.
