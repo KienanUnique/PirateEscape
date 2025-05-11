@@ -2,6 +2,7 @@
 using Game.Ui.Dialog;
 using Game.Ui.Gameplay;
 using Game.Ui.Lose;
+using Game.Ui.Pause;
 using Game.Ui.Tutorial;
 using Game.Ui.Win;
 using KoboldUi.Utils;
@@ -23,6 +24,7 @@ namespace Game.Installers
         [SerializeField] private LoseWindow _loseWindow;
         [SerializeField] private ComicsWindow _comicsWindow;
         [SerializeField] private TutorialWindow _tutorialWindow;
+        [SerializeField] private PauseWindow _pauseWindow;
         
         public override void InstallBindings()
         {
@@ -34,6 +36,7 @@ namespace Game.Installers
             Container.BindWindowFromPrefab(canvasInstance, _loseWindow);
             Container.BindWindowFromPrefab(canvasInstance, _comicsWindow);
             Container.BindWindowFromPrefab(canvasInstance, _tutorialWindow);
+            Container.BindWindowFromPrefab(canvasInstance, _pauseWindow);
         }
     }
 }
