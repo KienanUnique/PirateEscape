@@ -156,7 +156,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _modules:
   - {fileID: 9163879739563519494}
+  _appearDuration: 0.5
+  _appearEase: 9
+  _disappearDuration: 0.2
+  _disappearEase: 8
   _dialog: {fileID: 0}
+  _image: {fileID: 6001791623290877436}
 --- !u!114 &9163879739563519494
 MonoBehaviour:
   m_ObjectHideFlags: 0
