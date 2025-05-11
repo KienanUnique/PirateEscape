@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8418269403944b0c8ade35428c63d252, type: 3}
   m_Name: TestDialogueProvider
   m_EditorClassIdentifier: 
-  _startNode: Test_Dialogue
+  _startNode: Rat_dialogue

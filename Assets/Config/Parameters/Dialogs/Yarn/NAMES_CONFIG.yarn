@@ -2,6 +2,14 @@
 ---
 <<declare $AV_rat_happy = "rat_happy">>
 <<declare $AV_rat_sad = "rat_sad">>
+<<declare $AV_rat_teleport = "rat_teleport">>
+<<declare $AV_rat_scary = "rat_scary">>
+<<declare $AV_rat_normal = "rat_normal">>
+<<declare $AV_rat_mat_shluha = "rat_mat_shluha">>
+<<declare $AV_rat_cry = "rat_crying">>
+<<declare $AV_rat_laugh = "rat_laugh">>
+<<declare $AV_rat_hurt = "rat_hurt">>
+
 ===
 
 title: DECLARE_NAMES

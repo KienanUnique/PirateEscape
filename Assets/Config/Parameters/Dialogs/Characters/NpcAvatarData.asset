@@ -14,6 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _avatars:
   - _name: rat_happy
-    _sprite: {fileID: 21300000, guid: e66e23a9b24e52b4688a686546878ac1, type: 3}
+    _sprite: {fileID: 21300000, guid: 3e7ab266e1f307c42a28a350b707d4b8, type: 3}
   - _name: rat_sad
-    _sprite: {fileID: 21300000, guid: 1f86022a37b35dd4d83937bad8a6a0c3, type: 3}
+    _sprite: {fileID: 21300000, guid: 3277b1d57db81bc4ca143d9bbffde78c, type: 3}
+  - _name: rat_teleport
+    _sprite: {fileID: 21300000, guid: e05cd401ae9c8e54da199b7c0cd18161, type: 3}
+  - _name: rat_scary
+    _sprite: {fileID: 21300000, guid: 1ed165948a92eb140b0c161fc3d52125, type: 3}
+  - _name: rat_normal
+    _sprite: {fileID: 21300000, guid: e36fe199549924f48842aa7702f2103a, type: 3}
+  - _name: rat_mat_shluha
+    _sprite: {fileID: 21300000, guid: cf3fced19b47c1044a2c584742493159, type: 3}
+  - _name: rat_crying
+    _sprite: {fileID: 21300000, guid: 93bc4013727b37840bbadc3de1c9ad31, type: 3}
+  - _name: rat_laugh
+    _sprite: {fileID: 21300000, guid: 52a79be61dcab5e49a76eb7b89d35472, type: 3}
+  - _name: rat_hurt
+    _sprite: {fileID: 21300000, guid: c7a06cb4de4eb3443ac19be9de3c3478, type: 3}
