@@ -31,3 +31,9 @@ MonoBehaviour:
     _sprite: {fileID: 21300000, guid: 52a79be61dcab5e49a76eb7b89d35472, type: 3}
   - _name: rat_hurt
     _sprite: {fileID: 21300000, guid: c7a06cb4de4eb3443ac19be9de3c3478, type: 3}
+  - _name: tarakan_smile
+    _sprite: {fileID: 21300000, guid: 212c34db0a2e76d4f899e3b2b6f211d2, type: 3}
+  - _name: tarakan_obama
+    _sprite: {fileID: 21300000, guid: cdb46eeb8f51bc846a1120b1a61bdefa, type: 3}
+  - _name: tarakan_jojo
+    _sprite: {fileID: 21300000, guid: 2636823159e8cdd41b401110817cb4ea, type: 3}

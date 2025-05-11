@@ -9,10 +9,14 @@
 <<declare $AV_rat_cry = "rat_crying">>
 <<declare $AV_rat_laugh = "rat_laugh">>
 <<declare $AV_rat_hurt = "rat_hurt">>
+<<declare $AV_tarakan_smile = "tarakan_smile">>
+<<declare $AV_tarakan_obama = "tarakan_obama">>
+<<declare $AV_tarakan_jojo = "tarakan_jojo">>
 
 ===
 
 title: DECLARE_NAMES
 ---
 <<declare $rat = "Rat">>
+<<declare $tarakan = "Tarakan">>
 ===
