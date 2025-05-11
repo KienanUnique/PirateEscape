@@ -10,7 +10,8 @@ namespace Services.Scenes.Impl
 {
     public class ScenesService : IScenesService, IDisposable
     {
-        private const string GAME_SCENE_NAME = "GameScene";
+        private const string GameSceneName = "GameScene";
+        private const string TitlesSceneName = "TitlesScene";
 
         private readonly IProjectWindowsService _projectWindowsService;
         
@@ -28,7 +29,12 @@ namespace Services.Scenes.Impl
 
         public void LoadGameScene()
         {
-            LoadScene(GAME_SCENE_NAME);
+            LoadScene(GameSceneName);
+        }
+
+        public void LoadTitlesScene()
+        {
+            LoadScene(TitlesSceneName);
         }
 
         public void Dispose()
