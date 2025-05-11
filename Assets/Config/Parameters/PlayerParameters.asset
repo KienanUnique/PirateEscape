@@ -19,6 +19,8 @@ MonoBehaviour:
   <GroundedDrag>k__BackingField: 5
   <AirborneDrag>k__BackingField: 3
   <GroundCheckSphereRadius>k__BackingField: 0.45
-  <JumpForce>k__BackingField: 450
+  <JumpForce>k__BackingField: 900
   <JumpCooldown>k__BackingField: 0.5
   <LookVerticalClamp>k__BackingField: 90
+  <FootstepCooldown>k__BackingField: 0.4
+  <SprintFootstepCooldown>k__BackingField: 0.2
