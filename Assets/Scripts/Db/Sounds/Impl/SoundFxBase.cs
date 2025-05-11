@@ -18,16 +18,11 @@ namespace Db.Sounds.Impl
         [SerializeField] private List<SoundClipVo> uiSounds = new();
 
         [AlchemySerializeField, NonSerialized]
-        private Dictionary<EBackgroundMusicType, string> _backgroundMusic = new();
-
-        [AlchemySerializeField, NonSerialized]
         private Dictionary<ESoundsGroupType, string> _soundGroupBuses = new();
-
-        [field: SerializeField] public string BackgroundMusicTypeParameterName { get; private set; }
+        
         [field: SerializeField] public EventReference BackgroundMusicEventReference { get; private set; }
 
         public IReadOnlyDictionary<ESoundsGroupType, string> SoundGroupBuses => _soundGroupBuses;
-        public IReadOnlyDictionary<EBackgroundMusicType, string> BackgroundMusicTypeParametersNames => _backgroundMusic;
 
         public IReadOnlyDictionary<EGameSoundFxType, EventReference> GameSoundsEventReferences
         {

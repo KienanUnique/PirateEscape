@@ -1,10 +1,8 @@
-﻿using Services.FmodSound.Utils;
-
-namespace Services.FmodSound.Impl.Background
+﻿namespace Services.FmodSound.Impl.Background
 {
     public interface IBackgroundMusicService
     {
-        void Play(EBackgroundMusicType soundType);
+        void Play();
         void SetPause(bool isPaused);
         void Stop();
     }

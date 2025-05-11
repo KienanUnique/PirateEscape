@@ -8,8 +8,12 @@ namespace Game.Services.Dialog
         Observable<Unit> DialogStarted { get; }
         Observable<Unit> DialogComplete { get; }
         Observable<IDialogProvider> NeedStartDialog { get; }
+        Observable<Unit> WinRequested { get; }
+        Observable<Unit> LoseRequested { get; }
         
         void StartDialog(IDialogProvider dialog);
         void HandleDialogComplete();
+        void RequestWin();
+        void RequestLose();
     }
 }

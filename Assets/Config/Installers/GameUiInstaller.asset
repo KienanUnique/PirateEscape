@@ -17,3 +17,6 @@ MonoBehaviour:
   _dialogWindow: {fileID: 4352132467199015681, guid: e919c0ac6ba38a944a6c33baf1b464b7, type: 3}
   _winWindow: {fileID: 4559918850424461149, guid: 5b86deb4e6eb98f46ad8ddd48fd51ec1, type: 3}
   _loseWindow: {fileID: 5801923340351492595, guid: 90840dbdbb751ba49b2f3346e2744952, type: 3}
+  _comicsWindow: {fileID: 2409098872721047673, guid: 590b46e2828d5b0499dac93a0d9d309e, type: 3}
+  _tutorialWindow: {fileID: 3030586714088394989, guid: 5962e7b52f631fc46a736209e78ae09f, type: 3}
+  _pauseWindow: {fileID: 1709862155797833942, guid: 78197286c8467d146a57fbc1ea386f8a, type: 3}

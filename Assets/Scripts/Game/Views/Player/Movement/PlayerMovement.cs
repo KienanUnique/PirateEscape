@@ -2,6 +2,8 @@
 using Game.Db.Player;
 using Game.Utils.Layers;
 using R3;
+using Services.FmodSound.Impl.Game;
+using Services.FmodSound.Utils;
 using Services.Input;
 using Services.Settings;
 using UnityEngine;
@@ -19,12 +21,14 @@ namespace Game.Views.Player.Movement
         [Inject] private IInputService _inputService;
         [Inject] private IPlayerParameters _playerParameters;
         [Inject] private ISettingsStorageService _settingsStorageService;
+        [Inject] private IGameSoundFxService _gameSoundFxService;
         
         private bool _isInputEnabled;
         private Vector3 _moveDirection;
         private float _xRotation;
         private bool _isGrounded;
         private float _jumpCooldownTimer;
+        private float _footstepCooldownTimer;
         
         private RaycastHit _slopeHit;
 
@@ -51,6 +55,7 @@ namespace Game.Views.Player.Movement
             HandleMovement();
             HandleDrag();
             HandleJumpCooldown();
+            TryPlayFootstepSound();
         }
         
         private void TryJump()
@@ -86,10 +91,10 @@ namespace Game.Views.Player.Movement
                 return;
             }
 
-            Vector2 input = _inputService.MoveDirection;
+            var input = _inputService.MoveDirection;
 
-            Vector3 forward = _cameraTransform.forward;
-            Vector3 right = _cameraTransform.right;
+            var forward = _cameraTransform.forward;
+            var right = _cameraTransform.right;
 
             forward.y = 0f;
             right.y = 0f;
@@ -141,6 +146,24 @@ namespace Game.Views.Player.Movement
             if (_jumpCooldownTimer > 0)
             {
                 _jumpCooldownTimer -= Time.fixedDeltaTime;
+            }
+        }
+
+        private void TryPlayFootstepSound()
+        {
+            if (!_isInputEnabled || _inputService.MoveDirection == Vector2.zero || !_isGrounded)
+                return;
+            
+            if (_footstepCooldownTimer > 0)
+            {
+                _footstepCooldownTimer -= Time.fixedDeltaTime;
+            }
+            else
+            {
+                _gameSoundFxService.PlaySound(EGameSoundFxType.Footstep);
+                _footstepCooldownTimer = _inputService.IsSprintPressed.CurrentValue
+                    ? _playerParameters.SprintFootstepCooldown
+                    : _playerParameters.FootstepCooldown;
             }
         }
     }

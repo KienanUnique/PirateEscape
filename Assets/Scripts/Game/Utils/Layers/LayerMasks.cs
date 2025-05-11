@@ -10,7 +10,7 @@ namespace Game.Utils.Layers
         public static int Grabbable => GrabbableMask.Value;
         
         private static readonly Mask PlayerMask = new Mask(Layers.Player);
-        private static readonly Mask GroundMask = new Mask(Layers.Default);
+        private static readonly Mask GroundMask = new Mask(Layers.Default, Layers.Grabbable);
         private static readonly Mask InteractableMask = new Mask(Layers.Interactable);
         private static readonly Mask GrabbableMask = new Mask(Layers.Grabbable);
         

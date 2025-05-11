@@ -3,6 +3,8 @@ using Game.Core;
 using Game.Utils.Layers;
 using R3;
 using R3.Triggers;
+using Services.FmodSound.Impl.Game;
+using Services.FmodSound.Utils;
 using Services.Input;
 using UnityEngine;
 using Zenject;
@@ -18,6 +20,7 @@ namespace Game.Views.Player.Interactor
         [SerializeField] private Collider _interactTrigger;
 
         [Inject] private IInputService _inputService;
+        [Inject] private IGameSoundFxService _gameSoundFxService;
         
         public ReadOnlyReactiveProperty<IClickInteractable> ChosenClickInteractable => _chosenClickInteractable;
         public Observable<Unit> ClickOnObjectInteractable => _clickOnObjectInteractable;
@@ -61,7 +64,8 @@ namespace Game.Views.Player.Interactor
             if(_chosenClickInteractable.Value == null)
                 return;
             
-            _chosenClickInteractable.Value?.Interact();
+            _gameSoundFxService.PlaySound(EGameSoundFxType.HitDistractible);
+            _chosenClickInteractable.Value.Interact();
             _clickOnObjectInteractable.Execute(Unit.Default);
         }
 
