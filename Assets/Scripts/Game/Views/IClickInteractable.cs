@@ -8,6 +8,7 @@ namespace Game.Views
         int Progress { get; }
         int MaxProgress { get; }
         
+        bool CanInteract { get; }
         void Interact();
     }
 }

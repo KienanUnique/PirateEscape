@@ -11,7 +11,6 @@ namespace Game.Utils.NonBindedViews
     public class NonBindedViewsHolder : MonoBehaviour
     {
         [SerializeField] private List<TalkableCharacterView> _talkableCharacters;
-        [SerializeField] private List<ClickInteractObject> _clickInteractObjects;
         
         public IReadOnlyList<AView> NonBindedViews
         {
@@ -19,7 +18,6 @@ namespace Game.Utils.NonBindedViews
             {
                 var views = new List<AView>();
                 views.AddRange(_talkableCharacters);
-                views.AddRange(_clickInteractObjects);
                 return views;
             }
         }
@@ -30,9 +28,6 @@ namespace Game.Utils.NonBindedViews
         {
             _talkableCharacters = new List<TalkableCharacterView>();
             _talkableCharacters.AddRange(FindObjectsByType<TalkableCharacterView>(FindObjectsSortMode.InstanceID));
-
-            _clickInteractObjects = new();
-            _clickInteractObjects.AddRange(FindObjectsByType<ClickInteractObject>(FindObjectsSortMode.InstanceID));
             
             EditorUtility.SetDirty(this);
             AssetDatabase.SaveAssetIfDirty(this);
