@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{33e460a4-cdcd-4465-99a0-836272769549}">
+		<property name="assetPath">
+			<value>Shouts/parrot_sounds_5.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.48285416666666664</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{80e87afd-47db-4d7a-ad0b-4e587990de9a}</destination>
+		</relationship>
+	</object>
+</objects>

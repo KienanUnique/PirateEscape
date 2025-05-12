@@ -58,6 +58,15 @@ MonoBehaviour:
         Data3: -1030626416
         Data4: -63036256
       Path: event:/Explosion
+  - UiSoundName: 0
+    GameSoundType: 6
+    EventReference:
+      Guid:
+        Data1: 2120579639
+        Data2: 1128647038
+        Data3: -573074812
+        Data4: -1796827752
+      Path: event:/Shout
   uiSounds:
   - UiSoundName: 1
     GameSoundType: 0

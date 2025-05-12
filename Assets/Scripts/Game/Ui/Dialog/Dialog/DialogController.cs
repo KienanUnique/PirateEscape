@@ -2,6 +2,7 @@
 using Game.Services.Dialog;
 using KoboldUi.Element.Controller;
 using R3;
+using Services.Input;
 
 namespace Game.Ui.Dialog.Dialog
 {
@@ -10,18 +11,21 @@ namespace Game.Ui.Dialog.Dialog
         private readonly IAvatarBase _avatarStorage;
         private readonly IDialogService _dialogService;
         private readonly IDialogParameters _dialogParameters;
+        private readonly IInputService _inputService;
 
         private bool _isAvatarSet;
 
         public DialogController(
             IAvatarBase avatarStorage, 
             IDialogService dialogService,
-            IDialogParameters dialogParameters
+            IDialogParameters dialogParameters,
+            IInputService inputService
         )
         {
             _avatarStorage = avatarStorage;
             _dialogService = dialogService;
             _dialogParameters = dialogParameters;
+            _inputService = inputService;
         }
 
         public override void Initialize()
@@ -32,6 +36,16 @@ namespace Game.Ui.Dialog.Dialog
             View.Runner.AddCommandHandler<string>(_dialogParameters.WinCommandName, _dialogService.RequestWin);
             View.Runner.AddCommandHandler(_dialogParameters.LoseCommandName, _dialogService.RequestLose);
 
+            _inputService.AnyKeyPressPerformed.Subscribe(_ => OnAnyKeyPressed()).AddTo(View);
+        }
+
+        private void OnAnyKeyPressed()
+        {
+            View.Line.UserRequestedViewAdvancement();
+        }
+
+        protected override void OnOpen()
+        {
             View.HideAvatarInstantly();
         }
 
@@ -49,6 +63,7 @@ namespace Game.Ui.Dialog.Dialog
         {
             var newAvatarSprite = _avatarStorage.GetAvatarByName(newAvatarName);
             View.ChangeAvatar(newAvatarSprite, _isAvatarSet);
+            _isAvatarSet = true;
         }
         
         private void OnDialogComplete()
