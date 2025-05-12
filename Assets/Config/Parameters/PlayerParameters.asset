@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b65e380f734e11bb5d9f629e8619e2, type: 3}
   m_Name: PlayerParameters
   m_EditorClassIdentifier: 
-  <Speed>k__BackingField: 10
-  <SprintSpeed>k__BackingField: 20
+  <Speed>k__BackingField: 15
+  <SprintSpeed>k__BackingField: 25
   <SprintAcceleration>k__BackingField: 40
   <Acceleration>k__BackingField: 20
   <GroundedDrag>k__BackingField: 5
   <AirborneDrag>k__BackingField: 3
   <GroundCheckSphereRadius>k__BackingField: 0.45
-  <JumpForce>k__BackingField: 900
+  <JumpForce>k__BackingField: 1200
   <JumpCooldown>k__BackingField: 0.5
   <LookVerticalClamp>k__BackingField: 90
   <FootstepCooldown>k__BackingField: 0.4

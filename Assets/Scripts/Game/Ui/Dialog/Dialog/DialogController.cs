@@ -42,11 +42,17 @@ namespace Game.Ui.Dialog.Dialog
 
         private void OnExitPressed()
         {
+            if (!View.Runner.IsDialogueRunning)
+                return;
+            
             View.Runner.Stop();
         }
 
         private void OnAnyKeyPressed()
         {
+            if (!View.Runner.IsDialogueRunning)
+                return;
+            
             View.Line.UserRequestedViewAdvancement();
         }
 

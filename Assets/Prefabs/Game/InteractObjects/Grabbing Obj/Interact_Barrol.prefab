@@ -105,7 +105,7 @@ MonoBehaviour:
   _grabParams:
     Mass: 10
     LinearDamping: 0
-    AngularDamping: 0
+    AngularDamping: 0.05
   _jointSpring: 150
   _jointDamper: 15
 --- !u!1001 &6468328575775774679
