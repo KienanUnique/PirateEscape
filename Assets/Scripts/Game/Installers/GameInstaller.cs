@@ -3,6 +3,7 @@ using Alchemy.Inspector;
 using Game.Services.CameraHolder.Impl;
 using Game.Services.Dialog.Impl;
 using Game.Services.NonBindedViewsInitializer;
+using Game.Services.ParrotShout;
 using Game.Services.Pause.Impl;
 using Game.Services.StateMachine.Impl;
 using Game.Timer.Impl;
@@ -45,6 +46,7 @@ namespace Game.Installers
             Container.BindInterfacesTo<GameSoundFxService>().AsSingle();
             Container.BindInterfacesTo<TimerService>().AsSingle();
             Container.BindInterfacesTo<DialogService>().AsSingle();
+            Container.BindInterfacesTo<ParrotShoutService>().AsSingle().NonLazy();
             Container.BindInterfacesTo<CameraHolderService>().AsSingle().WithArguments(_cameraInstance);
             Container.BindInterfacesTo<NonBindedViewsInitializerService>().AsSingle().WithArguments(_nonBindedViewsHolder).NonLazy();
         }

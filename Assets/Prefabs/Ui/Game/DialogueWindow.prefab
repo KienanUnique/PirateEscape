@@ -319,9 +319,11 @@ MonoBehaviour:
   _image: {fileID: 4350990416640384796}
   _appearDuration: 0.5
   _appearEase: 9
-  _disappearDuration: 0.3
-  _disappearEase: 8
+  _spriteChangeSmallestScale: 0.7
+  _spriteChangeDuration: 0.3
+  _spriteChangeEase: 9
   <Runner>k__BackingField: {fileID: 705679416044949641}
+  <Line>k__BackingField: {fileID: 8498785941418705418}
 --- !u!114 &705679416044949641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,6 +498,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4935123090281167014, guid: 67dde1b92175d4745aaea386e7555d40, type: 3}
+      propertyPath: continueButton
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4935123090281167014, guid: 67dde1b92175d4745aaea386e7555d40, type: 3}
       propertyPath: continueActionReference
       value: 
       objectReference: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
@@ -648,7 +654,8 @@ PrefabInstance:
       value: 1801810542
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4935123090415912066, guid: 67dde1b92175d4745aaea386e7555d40, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67dde1b92175d4745aaea386e7555d40, type: 3}

@@ -15,6 +15,7 @@ namespace Services.Input.Impl
         private readonly ReactiveCommand _grabPerformed = new();
         private readonly ReactiveCommand _clickInteractPerformed = new();
         private readonly ReactiveCommand _pausePerformed = new();
+        private readonly ReactiveCommand _shoutPerformed = new();
         private readonly ReactiveCommand _uiExitPerformed = new();
         private readonly ReactiveProperty<bool> _isSprintPressed = new();
         private readonly MainControls _mainControls = new();
@@ -29,6 +30,7 @@ namespace Services.Input.Impl
         public Observable<Unit> JumpPressed => _jumpPerformed;
         public Observable<Unit> PausePressed => _pausePerformed;
         public Observable<Unit> UiExitPressed => _uiExitPerformed;
+        public Observable<Unit> ShoutPerformed => _shoutPerformed;
 
         public void Initialize()
         {
@@ -43,6 +45,7 @@ namespace Services.Input.Impl
             _mainControls.Gameplay.ClickInteract.performed += OnClickInteractPerformed;
             _mainControls.Gameplay.Sprint.started += OnSprintStarted;
             _mainControls.Gameplay.Sprint.canceled += OnSprintCanceled;
+            _mainControls.Gameplay.Shout.performed += OnShoutPerformed;
             
             SwitchToUiAnyKeyInput();
         }
@@ -87,6 +90,7 @@ namespace Services.Input.Impl
             _mainControls.Gameplay.ClickInteract.performed -= OnClickInteractPerformed;
             _mainControls.Gameplay.Sprint.started -= OnSprintStarted;
             _mainControls.Gameplay.Sprint.canceled -= OnSprintCanceled;
+            _mainControls.Gameplay.Shout.performed -= OnShoutPerformed;
             _mainControls?.Dispose();
         }
 
@@ -97,6 +101,7 @@ namespace Services.Input.Impl
         private void OnSprintCanceled(InputAction.CallbackContext obj) => _isSprintPressed.Value = false;
         private void OnInteractionPerformed(InputAction.CallbackContext obj) => _interactionPerformed.Execute(Unit.Default);
         private void OnGrabPerformed(InputAction.CallbackContext obj) => _grabPerformed.Execute(Unit.Default);
+        private void OnShoutPerformed(InputAction.CallbackContext obj) => _shoutPerformed.Execute(Unit.Default);
         private void OnClickInteractPerformed(InputAction.CallbackContext obj) => _clickInteractPerformed.Execute(Unit.Default);
         private void OnUiExitPerformed(InputAction.CallbackContext obj) => _uiExitPerformed.Execute(Unit.Default);
     }
