@@ -43,7 +43,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3898994269123393109}
   serializedVersion: 4
-  m_Mass: 40
+  m_Mass: 20
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -97,13 +97,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _selfRigidbody: {fileID: 8706637855797627502}
   _defaultParam:
-    Mass: 40
+    Mass: 20
     LinearDamping: 0
     AngularDamping: 0.05
   _grabParams:
-    Mass: 15
+    Mass: 5
     LinearDamping: 0
-    AngularDamping: 0
+    AngularDamping: 0.05
   _jointSpring: 150
   _jointDamper: 15
 --- !u!1 &9022668331655589817

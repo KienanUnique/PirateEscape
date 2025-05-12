@@ -17,23 +17,23 @@ title: Doing_here
 position: 68,-191
 ---
     <<change_avatar {$AV_tarakan_smile}>>
-{$tarakan}:By the way, what are you doing here Pirate?
+{$tarakan}:By the way, what are you doing here <color="red">Pirate?</color> 
     -> Just talking to you .
         <<change_avatar {$AV_tarakan_jojo}>>
-        {$tarakan}: Ok, do YOU wanna eat?
-        -> No! I need to turn off that kettle!
+        {$tarakan}: Ok, do YOU wanna <color="Yellow">eat</color> ?
+        -> No! I need to turn off that <color=\#00BFFF>kettle</color>!
             <<change_avatar {$AV_tarakan_obama}>>
             <<jump Kettle>>
-        -> Yea, there is no such thing as too much food! 
+        -> Yea, there is no such thing as too much <color="Yellow">food</color> ! 
             <<change_avatar {$AV_tarakan_smile}>>
             <<jump Food>>
-    -> Trying to turn of that kettle.
+    -> Trying to turn of that <color=\#00BFFF>kettle</color>.
         <<change_avatar {$AV_tarakan_jojo}>>
-        {$tarakan}: Ok, do YOU wanna eat?
-        -> No! I need to turn off that kettle!
+        {$tarakan}: Ok, do YOU wanna <color="Yellow">eat</color>?
+        -> No! I need to turn off that <color=\#00BFFF>kettle</color>!
             <<change_avatar {$AV_tarakan_obama}>>
             <<jump Kettle>>
-        -> Yea, there is no such thing as too much food! 
+        -> Yea, there is no such thing as too much <color="Yellow">food</color>! 
             <<change_avatar {$AV_tarakan_smile}>>
             <<jump Food>>
 ===
@@ -41,16 +41,16 @@ title: Kettle
 position: -53,72
 ---
 <<change_avatar {$AV_tarakan_jojo}>>
-{$tarakan}:Why, WHYYY do YOU want that ?
-    -> Its gonna blow up and destroy this cage! 
+{$tarakan}:Why, <color="red">WHYYY</color> do YOU want that ?
+    -> Its gonna <color=\#FF8C00> blow up</color> and destroy this cage! 
         <<change_avatar {$AV_tarakan_smile}>>
-        {$tarakan}:So what? Lets get some food bud!
+        {$tarakan}:So what? Lets get some <color="Yellow">food</color> bud!
         <<change_avatar {$AV_tarakan_jojo}>>
-        {$tarakan}:You must be hungry
+        {$tarakan}:You must be <color="Yellow">hungry</color>
         <<change_avatar {$AV_tarakan_smile}>>
-        {$tarakan}:Go take some food for us
+        {$tarakan}:Go take some <color="Yellow">food</color> for us
         <<change_avatar {$AV_tarakan_jojo}>>
-        {$tarakan}:There's bowl outside, go get some food.
+        {$tarakan}:There's bowl outside, go get some <color="Yellow">food</color>.
         <<change_avatar {$AV_tarakan_smile}>>
     -> None of your business. 
     <<change_avatar {$AV_tarakan_obama}>>
@@ -59,13 +59,14 @@ title: Food
 position: 293,79
 ---
 <<change_avatar {$AV_tarakan_jojo}>>
-{$tarakan}:Nice, do YOU see that bowl with FOOD?
-{$tarakan}:When you get out, take something to eat for us, ok?
-    -> Allright, lets eat !
+{$tarakan}:Nice, do YOU see that bowl with <color="Yellow">FOOD</color>?
+{$tarakan}:When you get out, take something to <color="Yellow">eat</color> for us, ok?
+    -> Allright, lets <color="Yellow">eat</color> !
         <<change_avatar {$AV_tarakan_smile}>>
         {$tarakan}: Yay! Hurry up!
-    -> Nah, i will eat all of the food by my self
+    -> Nah, i will eat all of the <color="Yellow">food</color> by my self
         <<change_avatar {$AV_tarakan_obama}>>
         {$tarakan}: Thats not very nice...
         {$tarakan}: Sad...
+        {$tarakan}: <size=50%> anyway i will <color="Yellow">eat</color> with ypu little pirate, you are my friend now 
 ===

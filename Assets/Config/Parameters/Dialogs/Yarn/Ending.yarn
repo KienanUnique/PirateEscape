@@ -2,8 +2,8 @@
 position: 60,-369
 ---
 What should i choose?
-        -> Turn off the kettle and save your cage.
+        -> Turn off the <color=\#00BFFF>kettle</color> and save your cage.
             <<win {$win_defuse}>>
-        -> Go eat some food from bowl.
+        -> Go eat some <color="Yellow">food</color> from bowl.
             <<win {$win_meal}>>
 ===
