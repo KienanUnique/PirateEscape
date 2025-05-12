@@ -815,11 +815,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7652033300118599409, guid: 4dfbd4963b3d20b4ba67133e2eeadd41, type: 3}
       propertyPath: m_Value
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7652033300118599409, guid: 4dfbd4963b3d20b4ba67133e2eeadd41, type: 3}
       propertyPath: m_MaxValue
-      value: 800
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7652033300118599409, guid: 4dfbd4963b3d20b4ba67133e2eeadd41, type: 3}
       propertyPath: m_MinValue

@@ -15,4 +15,4 @@ MonoBehaviour:
   masterVolume: 0.3
   musicVolume: 1
   finalTitlesVolume: 0.5
-  <MouseSensitivity>k__BackingField: 50
+  <MouseSensitivity>k__BackingField: 20
