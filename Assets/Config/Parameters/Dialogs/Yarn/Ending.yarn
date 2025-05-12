@@ -1,0 +1,9 @@
+﻿title: Ending
+position: 60,-369
+---
+What should i choose?
+        -> Turn off the kettle and save your cage.
+            <<win {$win_defuse}>>
+        -> Go eat some food from bowl.
+            <<win {$win_meal}>>
+===

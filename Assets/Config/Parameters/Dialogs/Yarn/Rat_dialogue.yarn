@@ -1,0 +1,122 @@
+﻿title: Rat_dialogue
+position: 60,-369
+---
+<<change_avatar {$AV_rat_normal}>>
+
+{$rat}: Hello, little parrrot... 
+{$rat}: I am the rat rat wizard, crawled here through the hole hole nearby
+{$rat}: Looks like the old old kette is about to blow up, what you are gonna do do about it ?
+    -> I'll just turn it off.
+        <<change_avatar {$AV_rat_sad}>>
+        <<jump Turn_off_kettle>>
+    -> I don't really care.
+        <<change_avatar {$AV_rat_teleport}>>
+        <<jump Dont_care_about_kettle>>
+===
+title: Turn_off_kettle
+position: 254,-155
+---
+{$rat}: Oh... Well you you have several options
+{$rat}: You can try to crawl through the hole hole that i make, but....
+ <<change_avatar {$AV_rat_hurt}>>
+{$rat}: but I closed it so that the human human won't notice.
+    -> What the second option, rat ?
+    <<change_avatar {$AV_rat_scary}>>
+ {$rat}: You can go the HARD HARD way.
+ {$rat}: Move that chest, find wooden plank plank in the labyrinth
+  <<change_avatar {$AV_rat_normal}>>
+ {$rat}: Do some parkour parkour to the top, and go out from the cage
+ -> Ok, thanks !
+  <<change_avatar {$AV_rat_mat_shluha}>>
+ {$rat}: Good luck, little parrot
+===
+title: Dont_care_about_kettle
+position: -128,-170
+---
+<<change_avatar {$AV_rat_laugh}>>
+{$rat}: HahHaHa , thats intresting, dont  care care about your human to?
+    -> Yea, the human does not understand me.
+         <<change_avatar {$AV_rat_scary}>>
+         {$rat}: Well, thats indeed quite quite fascinating.
+         {$rat}: A pet who dosent admire his master!
+         {$rat}: Maybe you could guess guess a couple of RAT riddles for me, to amuse me of course?
+         <<change_avatar {$AV_rat_normal}>>
+         {$rat}: I heard parrots , can speak like human, and humans are most intelligence spicies on the planet.
+         -> Ok, i dont mind some riddles.
+             <<jump Riddle_one>>
+         -> Nah, i changed my mind, bye!
+                <<change_avatar {$AV_rat_hurt}>>
+    -> I change my mind, i will turn  off the kettle 
+          <<change_avatar {$AV_rat_cry}>>
+            <<jump Turn_off_kettle>>
+
+===
+title: Riddle_one
+position: -128,30
+---
+<<change_avatar {$AV_rat_teleport}>>
+{$rat}: So, the first of three riddles is : I am an animal you might love 
+{$rat}: But I am too huge to be your pet
+{$rat}: I have an extremely long trunk
+<<change_avatar {$AV_rat_sad}>>
+{$rat}: And it is said I never forget.
+{$rat}: What is this this?
+<<change_avatar {$AV_rat_scary}>>
+    -> Elephant...
+         <<change_avatar {$AV_rat_laugh}>>
+         {$rat}:Technically thats true, but its WRONG!
+    -> Thats very fat rat with great memory.
+        <<change_avatar {$AV_rat_teleport}>>
+         {$rat}:Correct!
+        <<jump Riddle_two>>
+    -> Thats an apple!
+         {$rat}:Wrong!
+            <<change_avatar {$AV_rat_cry}>>
+    -> Can you repeat it again? 
+         <<change_avatar {$AV_rat_hurt}>>
+         {$rat}: Really? Listen carefully! 
+         <<jump Riddle_one>>
+===
+title: Riddle_two
+position: -130,202
+---
+{$rat}: SECOND of three riddles is : I am an animal with two long ears, and I hop but don’t walk.
+    -> Its long ear'd crippled rat 
+     {$rat}:Correct! Again, thats a record!
+     <<jump Riddle_three>>
+    -> That a rabbit!
+        <<change_avatar {$AV_rat_laugh}>>
+        {$rat}:Wrong!
+    -> Apple? 
+        <<change_avatar {$AV_rat_laugh}>>
+        {$rat}:Wrong!
+    -> Hare, i am sure.
+        <<change_avatar {$AV_rat_laugh}>>
+        {$rat}:Wrong!
+===
+title: Riddle_three
+position: -138,377
+---
+<<change_avatar {$AV_rat_laugh}>>
+{$rat}:The last of my riddles, if you If you give the wrong wrong answer, YOU will explode explode.
+ <<change_avatar {$AV_rat_cry}>>
+{$rat}: But if you give me correct answer, I - THE GREAT GRAY GRAY RAT WIZARD will defuse the kettle!
+{$rat}: What is red, crunchy, and grows on trees, often used in pies and sauces?
+    -> Thats a rat in the apple! 
+     <<change_avatar {$AV_rat_scary}>>
+      {$rat}:WRONG
+     <<lose>>
+    -> The rat from ratatouille .
+     <<change_avatar {$AV_rat_mat_shluha}>>
+     {$rat}:Nice, reference, but WRONG!
+        <<lose>>
+    -> Rat wizard.
+     <<change_avatar {$AV_rat_scary}>>
+     {$rat}:WRONG
+     <<lose>>
+    -> A...Ap...Apple?
+        <<change_avatar {$AV_rat_teleport}>>
+        {$rat}:Correct!
+        <<win {$win_defuse}>>
+
+===

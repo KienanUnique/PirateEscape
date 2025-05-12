@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{5d0ed9f7-35d2-4e50-a62a-cfa7b82cbf98}">
+		<property name="name">
+			<value>KettleProgression</value>
+		</property>
+		<relationship name="folder">
+			<destination>{e65067b7-b6fa-4a2b-8cbd-e668a161c5a0}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{95df0877-357c-4f39-a1e2-8c9fc19d553d}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{95df0877-357c-4f39-a1e2-8c9fc19d553d}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>0.5</value>
+		</property>
+	</object>
+</objects>

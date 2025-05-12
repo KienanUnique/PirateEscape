@@ -7,6 +7,7 @@ namespace Services.Scenes
         ReadOnlyReactiveProperty<float> LoadingProgress { get; }
         ReadOnlyReactiveProperty<bool> IsLoadingCompleted { get; }
         
-        void LoadNextScene(); // TODO: Implement me!
+        void LoadGameScene();
+        void LoadTitlesScene();
     }
 }

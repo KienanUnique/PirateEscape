@@ -23,13 +23,8 @@ namespace Services.FmodSound.Impl.Background.Impl
             _emitter = CreateEmitter();
         }
 
-        public void Play(EBackgroundMusicType soundType)
+        public void Play()
         {
-            var parameterName = _soundFxBase.BackgroundMusicTypeParameterName;
-            var value = _soundFxBase.BackgroundMusicTypeParametersNames[soundType];
-
-            _emitter.EventInstance.setParameterByNameWithLabel(parameterName, value);
-            
             if (_emitter.IsPlaying())
                 return;
             
