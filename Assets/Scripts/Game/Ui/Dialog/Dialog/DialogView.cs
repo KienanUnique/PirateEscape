@@ -35,7 +35,7 @@ namespace Game.Ui.Dialog.Dialog
             {
                 _image.sprite = newAvatar;
                 _currentTween = _image.DOFade(SHOW_ALPHA_VALUE, _appearDuration).SetEase(_appearEase)
-                    .SetLink(_image.gameObject);
+                    .SetLink(_image.gameObject).SetUpdate(true);
 
                 return;
             }
@@ -47,6 +47,7 @@ namespace Game.Ui.Dialog.Dialog
             sequence.Append(_image.rectTransform.DOScale(1f, scaleDuration));
             sequence.SetEase(_spriteChangeEase);
             sequence.SetLink(_image.gameObject);
+            sequence.SetUpdate(true);
             
             _currentTween = sequence;
         }
