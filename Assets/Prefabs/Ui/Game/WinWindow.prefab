@@ -146,8 +146,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press Any Key
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: afda9ca62b9be2d48b45ece5bd48c21d, type: 2}
+  m_sharedMaterial: {fileID: 4862666894537156467, guid: afda9ca62b9be2d48b45ece5bd48c21d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -318,8 +318,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: You lost ALL your money!!!!!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 523e5b50a8cc12149925edb932d42bfc, type: 2}
-  m_sharedMaterial: {fileID: 6177066128220304407, guid: 523e5b50a8cc12149925edb932d42bfc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: afda9ca62b9be2d48b45ece5bd48c21d, type: 2}
+  m_sharedMaterial: {fileID: 4862666894537156467, guid: afda9ca62b9be2d48b45ece5bd48c21d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
