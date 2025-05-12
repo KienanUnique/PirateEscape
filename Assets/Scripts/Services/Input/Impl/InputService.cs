@@ -37,6 +37,7 @@ namespace Services.Input.Impl
             _mainControls.UiAnyKey.ButtonPressed.performed += OnAnyKeyPerformed;
             
             _mainControls.Ui.Exit.performed += OnUiExitPerformed;
+            _mainControls.Ui.AnyKey.performed += OnAnyKeyPerformed;
             
             _mainControls.Gameplay.Pause.performed += OnPausePerformed;
             _mainControls.Gameplay.Jump.performed += OnJumpPerformed;
@@ -82,6 +83,7 @@ namespace Services.Input.Impl
             _mainControls.UiAnyKey.ButtonPressed.performed -= OnAnyKeyPerformed;
             
             _mainControls.Ui.Exit.performed -= OnUiExitPerformed;
+            _mainControls.Ui.AnyKey.performed -= OnAnyKeyPerformed;
             
             _mainControls.Gameplay.Pause.performed -= OnPausePerformed;
             _mainControls.Gameplay.Jump.performed -= OnJumpPerformed;
