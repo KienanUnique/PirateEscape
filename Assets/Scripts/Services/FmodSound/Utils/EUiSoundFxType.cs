@@ -4,5 +4,6 @@ namespace Services.FmodSound.Utils
     {
         None = 0,
         KitchenInTheDungeon = 1,
+        DialogStart = 2,
     }
 }

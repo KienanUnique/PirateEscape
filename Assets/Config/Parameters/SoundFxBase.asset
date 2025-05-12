@@ -77,6 +77,15 @@ MonoBehaviour:
         Data3: 948061570
         Data4: 325229417
       Path: event:/Intro
+  - UiSoundName: 2
+    GameSoundType: 0
+    EventReference:
+      Guid:
+        Data1: -299753337
+        Data2: 1212291709
+        Data3: -1622762310
+        Data4: 137761359
+      Path: event:/DialogStart
   <BackgroundMusicEventReference>k__BackingField:
     Guid:
       Data1: 954924322
