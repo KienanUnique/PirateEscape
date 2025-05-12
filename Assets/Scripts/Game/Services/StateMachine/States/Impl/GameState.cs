@@ -8,6 +8,8 @@ using Game.Views.Player;
 using Game.Views.WinTrigger;
 using KoboldUi.Services.WindowsService;
 using R3;
+using Services.FmodSound.Impl.Ui;
+using Services.FmodSound.Utils;
 using Services.Input;
 using Services.Session;
 using Utils;
@@ -24,6 +26,7 @@ namespace Game.Services.StateMachine.States.Impl
         private readonly IWinTriggerView _winTriggerView;
         private readonly IPauseService _pauseService;
         private readonly ISessionService _sessionService;
+        private readonly IUiSoundFxService _uiSoundFxService;
 
         public GameState(
             IPlayer player,
@@ -33,7 +36,8 @@ namespace Game.Services.StateMachine.States.Impl
             ILocalWindowsService localWindowsService,
             IWinTriggerView winTriggerView,
             IPauseService pauseService,
-            ISessionService sessionService
+            ISessionService sessionService,
+            IUiSoundFxService uiSoundFxService
         )
         {
             _player = player;
@@ -44,6 +48,7 @@ namespace Game.Services.StateMachine.States.Impl
             _winTriggerView = winTriggerView;
             _pauseService = pauseService;
             _sessionService = sessionService;
+            _uiSoundFxService = uiSoundFxService;
         }
 
         protected override void HandleEnter()
@@ -120,6 +125,7 @@ namespace Game.Services.StateMachine.States.Impl
             _localWindowsService.OpenWindow<DialogWindow>();
             _player.DisableActions();
             _inputService.SwitchToUiAnyKeyInput();
+            _uiSoundFxService.PlaySound(EUiSoundFxType.DialogStart);
         }
         
         private void OnDialogComplete()
