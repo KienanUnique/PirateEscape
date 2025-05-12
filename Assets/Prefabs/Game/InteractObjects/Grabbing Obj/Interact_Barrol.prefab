@@ -97,7 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05516593abab424ea7afc4dd983ebb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _modules: []
   _selfRigidbody: {fileID: 8706637855797627502}
   _defaultParam:
     Mass: 30
@@ -157,6 +156,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 44d76ea2d849c0b4d9ade3f333e17b69, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d4e00747730b69d4aafe660c78cf1599, type: 2}
     - target: {fileID: 919132149155446097, guid: 44d76ea2d849c0b4d9ade3f333e17b69, type: 3}
       propertyPath: m_Name
       value: Mdl_Barrel

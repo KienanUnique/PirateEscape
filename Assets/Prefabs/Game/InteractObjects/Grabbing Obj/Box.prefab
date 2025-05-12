@@ -95,7 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05516593abab424ea7afc4dd983ebb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _modules: []
   _selfRigidbody: {fileID: 8706637855797627502}
   _defaultParam:
     Mass: 40
@@ -171,7 +170,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5888754289584996200, guid: fb6495b7edab7944f84d969621df7d26, type: 3}
+  - {fileID: 2100000, guid: f17ddd3588e30a6418360f72a79559b6, type: 2}
   - {fileID: -3064677189442752075, guid: fb6495b7edab7944f84d969621df7d26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
