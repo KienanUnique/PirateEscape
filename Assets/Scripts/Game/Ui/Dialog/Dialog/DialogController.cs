@@ -37,6 +37,12 @@ namespace Game.Ui.Dialog.Dialog
             View.Runner.AddCommandHandler(_dialogParameters.LoseCommandName, _dialogService.RequestLose);
 
             _inputService.AnyKeyPressPerformed.Subscribe(_ => OnAnyKeyPressed()).AddTo(View);
+            _inputService.UiExitPressed.Subscribe(_ => OnExitPressed()).AddTo(View);
+        }
+
+        private void OnExitPressed()
+        {
+            View.Runner.Stop();
         }
 
         private void OnAnyKeyPressed()
