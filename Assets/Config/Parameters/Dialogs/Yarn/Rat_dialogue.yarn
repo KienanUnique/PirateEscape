@@ -23,7 +23,7 @@ position: 254,-155
     -> What the second option, rat ?
     <<change_avatar {$AV_rat_scary}>>
  {$rat}: You can go the HARD HARD way.
- {$rat}: Go to the left, find wooden  plank plank in the labyrinth
+ {$rat}: Move that chest, find wooden plank plank in the labyrinth
   <<change_avatar {$AV_rat_normal}>>
  {$rat}: Do some parkour parkour to the top, and go out from the cage
  -> Ok, thanks !
@@ -117,5 +117,6 @@ position: -138,377
     -> A...Ap...Apple?
         <<change_avatar {$AV_rat_teleport}>>
         {$rat}:Correct!
-        <<win>>
+        <<win {$win_defuse}>>
+
 ===

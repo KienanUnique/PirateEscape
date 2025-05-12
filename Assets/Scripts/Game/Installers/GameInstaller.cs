@@ -21,7 +21,7 @@ namespace Game.Installers
     public class GameInstaller : MonoInstaller
     {
         [SerializeField] private PlayerView _playerInstance;
-        [SerializeField] private TimerView _timerInstance;
+        //[SerializeField] private TimerView _timerInstance;
         [SerializeField] private NonBindedViewsHolder _nonBindedViewsHolder;
         [SerializeField] private Camera _cameraInstance;
         [SerializeField] private WinTriggerView _winTriggerViewInstance;
@@ -35,7 +35,7 @@ namespace Game.Installers
         private void BindViews()
         {
             Container.BindInterfacesAndSelfTo<PlayerView>().FromInstance(_playerInstance).AsSingle();
-            Container.BindInterfacesAndSelfTo<TimerView>().FromInstance(_timerInstance).AsSingle();
+            //Container.BindInterfacesAndSelfTo<TimerView>().FromInstance(_timerInstance).AsSingle();
             Container.BindInterfacesAndSelfTo<WinTriggerView>().FromInstance(_winTriggerViewInstance).AsSingle();
         }
 
@@ -56,7 +56,7 @@ namespace Game.Installers
         public virtual void Autofill()
         {
             _playerInstance = FindFirstObjectByType<PlayerView>();
-            _timerInstance = FindFirstObjectByType<TimerView>();
+            //_timerInstance = FindFirstObjectByType<TimerView>();
             _cameraInstance = FindFirstObjectByType<Camera>();
             _nonBindedViewsHolder = FindFirstObjectByType<NonBindedViewsHolder>();
             _winTriggerViewInstance = FindFirstObjectByType<WinTriggerView>();
