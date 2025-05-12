@@ -124,7 +124,7 @@ namespace Game.Services.StateMachine.States.Impl
             _timerService.SetPause(true);
             _localWindowsService.OpenWindow<DialogWindow>();
             _player.DisableActions();
-            _inputService.SwitchToUiAnyKeyInput();
+            _inputService.SwitchToUiInput();
             _uiSoundFxService.PlaySound(EUiSoundFxType.DialogStart);
         }
         
