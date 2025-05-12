@@ -1,27 +1,21 @@
-﻿using Game.Ui.Win;
-using KoboldUi.Services.WindowsService;
-using Services.Input;
+﻿using Services.Scenes;
 
 namespace Game.Services.StateMachine.States.Impl
 {
     public class WinState : AState
     {
-        private readonly IInputService _inputService;
-        private readonly ILocalWindowsService _localWindowsService;
+        private readonly IScenesService _scenesService;
 
-        public WinState(
-            IInputService inputService,
-            ILocalWindowsService localWindowsService
-        )
+        public WinState(IScenesService scenesService)
         {
-            _inputService = inputService;
-            _localWindowsService = localWindowsService;
+            _scenesService = scenesService;
         }
 
         protected override void HandleEnter()
         {
-            _inputService.SwitchToUiAnyKeyInput();
-            _localWindowsService.OpenWindow<WinWindow>();
+            _scenesService.LoadTitlesScene();
+            // _inputService.SwitchToUiAnyKeyInput();
+            // _localWindowsService.OpenWindow<WinWindow>();
         }
 
         protected override void HandleExit()
