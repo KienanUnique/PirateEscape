@@ -1,4 +1,5 @@
-﻿using R3;
+﻿using System;
+using R3;
 
 namespace Game.Views.Player
 {
@@ -11,5 +12,11 @@ namespace Game.Views.Player
         
         void EnableActions();
         void DisableActions();
+        
+        Observable<Unit> OnMovementStarted { get; }
+        Observable<Unit> OnJumped { get; }
+        Observable<Unit> OnObjectInteracted { get; }
+        bool IsInInteractionZone { get; }
+        Observable<Unit> OnDied { get; }
     }
 }

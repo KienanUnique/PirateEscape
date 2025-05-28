@@ -1,4 +1,5 @@
-﻿using Game.Core;
+﻿using System;
+using Game.Core;
 using Game.Views.Player.Interactor;
 using Game.Views.Player.Movement;
 using R3;
@@ -29,5 +30,11 @@ namespace Game.Views.Player
             _playerMovement.DisableMovement();
             _playerInteractor.DisableInteraction();
         }
+
+        public Observable<Unit> OnMovementStarted { get; }
+        public Observable<Unit> OnJumped { get; }
+        public Observable<Unit> OnObjectInteracted { get; }
+        public bool IsInInteractionZone { get; }
+        public Observable<Unit> OnDied { get; }
     }
 }
